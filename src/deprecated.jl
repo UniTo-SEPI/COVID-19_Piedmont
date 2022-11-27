@@ -295,10 +295,7 @@ function process_quarantene_extended(line_list::DataFrame, events_dates_names::D
                 data_inizio_quarantena_post_ospedalizzazione = max_data_dimissione_x
                 data_fine_quarantena_post_ospedalizzazione = line.data_G
             end
-
         end
-
-        
         push!(line_list_quarantene, (line.ID, data_inizio_quarantena_precauzionale, data_fine_quarantena_precauzionale, data_inizio_quarantena_ordinaria,data_fine_quarantena_ordinaria, data_inizio_quarantena_post_ospedalizzazione, data_fine_quarantena_post_ospedalizzazione  ))
 
         #println( "data_inizio_quarantena_precauzionale = $data_inizio_quarantena_precauzionale \ndata_fine_quarantena_precauzionale = $data_fine_quarantena_precauzionale \ndata_inizio_quarantena_ordinaria = $data_inizio_quarantena_ordinaria \ndata_fine_quarantena_ordinaria = $data_fine_quarantena_ordinaria")
@@ -310,9 +307,7 @@ function process_quarantene_extended(line_list::DataFrame, events_dates_names::D
 
     # Return dataframes with data_IQP, data_FQP, data_IQO, data_FQO, and remove date_IQ and date_FQ
     return select(leftjoin(line_list_dc, line_list_quarantene, on = [:ID]), line_lists_quarantene_columns)
-
 end
-
 
 """
     process_trasf_trasposti(trasf_trasposti_df::DataFrame, events_dates_names::Dict{Symbol,Symbol}; MVP = missing, is_MVP::F = ismissing) where {F <: Function}
@@ -320,7 +315,6 @@ end
 Process `trasf_trasposti_df` from main.py, with events dates names `events_dates_names`, missing values placeholder `MVP` and missing values check function `is_MVP`.
 """
 function process_trasf_trasposti(trasf_trasposti_df::DataFrame, events_dates_names::Dict{Symbol,Symbol}; MVP = missing, is_MVP::F = ismissing) where {F <: Function}
-
     # Deepcopy the input
     trasf_trasposti_df_dc::DataFrame = deepcopy(trasf_trasposti_df)
 
@@ -348,20 +342,15 @@ function process_trasf_trasposti(trasf_trasposti_df::DataFrame, events_dates_nam
 
             date_DI = Tuple([date for (date,icu) in zip(trasf_trasposti_by_ID_by_CHIAVE.dt_uscita,trasf_trasposti_by_ID_by_CHIAVE.repint) if icu==1])
 
-            push!(ricoveri, Ricovero(;date_AO = date_AO, date_DO = date_DO,date_AI = date_AI,date_DI = date_DI) )
-            
+            push!(ricoveri, Ricovero(;date_AO = date_AO, date_DO = date_DO,date_AI = date_AI,date_DI = date_DI) ) 
         end
-
         # Create the correpsonding ID => ricoveri pair in the dict
         ID_ricoveri_dct[groupkey.ID_SOGGETTO] = ricoveri #Tuple(ricoveri)
-
     end
-
     # Return the DataFrame sorted by ID
     return sort( DataFrame(:ID => collect(keys(ID_ricoveri_dct)), :ricoveri => collect(values(ID_ricoveri_dct))), [:ID] )
 
 end
-
 
 """
     get_event_column_from_event_and_sequence(event::String, sequence::Tuple{Vararg{String}})
@@ -376,7 +365,5 @@ function get_event_column_from_event_and_sequence(event::String, sequence::Tuple
         return index[1]
     else
         error("get_event_column_from_event_and_sequence($event, $sequence) did not return one and only one event sequence")
-    end
-        
+    end     
 end
-
