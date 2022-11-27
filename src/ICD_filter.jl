@@ -3,7 +3,7 @@
 #############################
 
 using Pkg                               # Import package manager
-Pkg.activate("./Code/Julia")            # Activate Julia environment
+Pkg.activate(".") .                     # Activate Julia environment
 Pkg.instantiate()                       # Instantiate the Julia environment
 
 #############################
