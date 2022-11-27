@@ -3,7 +3,7 @@
 #############################
 
 using Pkg                               # Import package manager
-Pkg.activate("./Code/Julia")            # Activate Julia environment
+Pkg.activate(".")                       # Activate Julia environment
 Pkg.instantiate()                       # Instantiate the Julia environment
 
 #############################
@@ -22,9 +22,9 @@ using Random                            # Randomizing
 ##### CUSTOM FUNCTIONS ######
 #############################
 
-include("Code/Julia/utilities.jl")
-include("Code/Julia/folder_structure.jl");
-include("Code/Julia/plotting.jl")
+include("utilities.jl")
+include("folder_structure.jl");
+include("plotting.jl")
 
 #############################
 ####### INSTRUCTIONS ########
