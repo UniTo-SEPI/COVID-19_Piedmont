@@ -36,12 +36,12 @@ end
 ### PARAMETER AGGREGATION ###
 
 """
-Function that turns an N-startified dataset in a n-stratified one.
+Function that turns an N-stratified dataset in a n-stratified one.
 Usage: 
 - `column_aggregations` is the array of aggregations of the dataframe column to desired age classes
 - `column_population_aggregations` is the array of aggregations of the `population` to the desired age classes, but limited by the dataframe column aggregation
 - `population_aggregations` is the array of aggregations of the aggregated `population` w.r.t `column_population_aggregations` to match the desired age classes
-Use something like `column_aggregations` = [1:2, 3:4, 5:6] for pure aggregations, or `column_aggregations` = [1:2, 3:4, 5, 5 , 6:7] to have both aggregations and disaggregtions (same goes for `column_population_aggregations` and `population_aggregations`).
+Use something like `column_aggregations` = [1:2, 3:4, 5:6] for pure aggregations, or `column_aggregations` = [1:2, 3:4, 5, 5 , 6:7] to have both aggregations and disaggregations (same goes for `column_population_aggregations` and `population_aggregations`).
 """
 function from_N_to_n(column::String, column_aggregations, population::Array{Int64}, population_aggregations; path="", df=DataFrame(), column_population_aggregations=[])
 
@@ -73,14 +73,14 @@ end
 """
     get_synthetic_dataset(confirmed_incidences_by_age::DataFrame; λ_SP_prior::Distribution, λ_TH_prior::Distribution, λ_H_priors::Vector{<:Distribution}, λ_ICU_priors::Vector{<:Distribution}, λ_R_prior::Distribution, λ_Q_prior::Distribution,  symptomatic_fraction::Vector{Float64}, quarantena_precauzionale_fraction::Float64 = 0.3, hospitalization_rate::Vector{Float64}, ICU_rate::Vector{Float64}, infection_fatality_ratio::Vector{Float64}, age_classes_string_integer_dct::Dict{String,Int64}, MVP, is_MVP::F   ) where { F <: Function}
 
-For every count in `confirmed_incidences_by_age` produce a line of a dataset equivalent to `line_list_ricoveri_quarantene_fp_is_lim` from main.jl that has positivity date equal to the date of the count, and all the other dates are sampled using the transitons and delays distributions given as inputs.
+For every count in `confirmed_incidences_by_age` produce a line of a dataset equivalent to `line_list_ricoveri_quarantene_fp_is_lim` from main.jl that has positivity date equal to the date of the count, and all the other dates are sampled using the transitions and delays distributions given as inputs.
 """
 function get_synthetic_dataset(confirmed_incidences_by_age::DataFrame; λ_SP_prior::Distribution, λ_TH_prior::Distribution, λ_H_priors::Vector{<:Distribution}, λ_ICU_priors::Vector{<:Distribution}, λ_R_prior::Distribution, λ_Q_prior::Distribution, symptomatic_fraction::Vector{Float64}, quarantena_precauzionale_fraction::Float64=0.3, hospitalization_rate::Vector{Float64}, ICU_rate::Vector{Float64}, rehabilitative_rate::Float64=0.8, infection_fatality_ratio::Vector{Float64}, age_classes_string_integer_dct::Dict{String,Int64}, MVP, is_MVP::F) where {F<:Function}
 
     # Pre-allocate output
     synthetic_dataset = DataFrame(ID=Int64[], classe_eta=Int64[], data_IS=Union{Date,Missing}[], data_P=Date[], data_IQP=Union{Date,Missing}[], data_FQP=Union{Date,Missing}[], data_IQO=Union{Date,Missing}[], data_FQO=Union{Date,Missing}[], data_AO=Union{Date,Missing}[], data_DO=Union{Date,Missing}[], data_AI=Union{Date,Missing}[], data_DI=Union{Date,Missing}[], data_AR=Union{Date,Missing}[], data_DR=Union{Date,Missing}[], data_G=Union{Date,Missing}[], data_D=Union{Date,Missing}[])
 
-    # Initilize ID counter and set upper bounds for events dates.
+    # Initialize ID counter and set upper bounds for events dates.
     ID = 1
     limit_IS = Date("2020-12-24")
     limit_FQO = Date("2020-12-25")
