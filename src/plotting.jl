@@ -14,7 +14,6 @@ function get_rich_raw_line_list(raw_line_list::DataFrame, run_name::String)
     return rich_raw_line_list
 end
 
-
 function get_rich_processed_line_list(processed_line_list::DataFrame, run_name::String)
 
     rich_processed_line_list = DataFrame() 
@@ -35,7 +34,6 @@ function get_rich_processed_line_list(processed_line_list::DataFrame, run_name::
     end
 
     return rich_processed_line_list
-
 end
 
 """
@@ -254,17 +252,9 @@ function plot_line_processed(line_list::DataFrame, ID::Int64; MVP, is_MVP::F, si
         plot!([missing],[missing], label = "$annotation = "*annotations_legend_dict[annotation], color = :white)
     end
 
-    
-
     # Return the plot
     return p
 end
-
-
-
-
-
-
 
 
 """
@@ -556,7 +546,6 @@ function plot_delays(delays::Dict{String, OrderedDict{Int64, OrderedDict{Int64, 
         [a{0.1w} b{0.45w} c{0.45w}] 
         ])) #plot_title = "Empirical time delay distribution from $(delay_name_split[2]) to $(delay_name_split[3])" 
     end
-
     # Return the dictionary of time delays 
     return delays_plots 
 end
@@ -674,12 +663,9 @@ function plot_fitted_time_delay_distributions(empirical_time_delays::Dict{String
         push!(delays_plots, delay_name => plot([age_class_plot, asymptomatic_plot, symptomatic_plot]..., size = plot_size, plot_title = "Empirical time delay distribution from $(delay_name_split[2]) to $(delay_name_split[3])"  , layout = @layout [a{0.1w} b{0.45w} c{0.45w}] )) #"Empirical time delay distribution from $(delay_name_split[2]) to $(delay_name_split[3])" size = plot_size @layout [a{0.1w} b{0.45w} c{0.45w}] age_class_plot, a{0.9w} 
     end 
 
-        # Return the dictionary of time delays 
-        return delays_plots 
-
-
+    # Return the dictionary of time delays 
+    return delays_plots 
 end
-
 
 function plot_incidences(incidences::OrderedDict{String, OrderedDict{Int64, DataFrame}}, age_classes_dct::Dict{Int64,String};event_title_associations::Dict{String,Dict{String,String}}, disease::String ,plot_size = (1000,900))
     plots = Dict{String,Plots.Plot}()
