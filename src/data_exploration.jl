@@ -3,7 +3,7 @@
 #############################
 
 using Pkg                               # Import package manager
-Pkg.activate("./Code/Julia")            # Activate Julia environment
+Pkg.activate(".")                       # Activate Julia environment
 Pkg.instantiate()                       # Instantiate the Julia environment
 
 #############################
@@ -25,7 +25,8 @@ using Base.Threads                      # Multithreading
 
 include("utilities.jl");
 
-const absolute_path_to_input_data = raw"C:\Progetti\True_input" # "./Fake_input" # "/Users/pietro/GitHub/SEPI/Fake_input" 
+const absolute_path_to_repository = dirname(@__DIR__) # "/path/to/COVID-19_Data_Modelling"
+const absolute_path_to_input_data = joinpath(absolute_path_to_repository, "data/fake-input")
 
 # Define paths to .sas7bdat files
 const join_all_path              = joinpath(absolute_path_to_input_data, "join_all.sas7bdat")
