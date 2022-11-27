@@ -14,7 +14,6 @@ function process(path::String)
     return df                       # Output the dataframe
 end
 
-
 #########################
 ######## GENERAL ########
 #########################
@@ -190,7 +189,7 @@ end
 """
     load_julia_variable(folder::String)
 
-Load the julia variable saved by `save_julia_variable` in two formats: . Return the saved dictionary if all three saved formats agree, otherwise returns all three formats .
+Load the julia variable saved by `save_julia_variable` in two formats: . Return the saved dictionary if all three saved formats agree, otherwise returns all three formats.
 """
 function load_julia_variable(folder::String; txt_parse_function::F = nothing) where {F <: Union{Function,Nothing}}
     files = readdir(folder; join  = true)
@@ -216,9 +215,7 @@ function load_julia_variable(folder::String; txt_parse_function::F = nothing) wh
         println("Not all loaded files are equal, please check.")
         return loaded_jld2,loaded_jls, loaded_txt
     end
-
 end
-
 
 function read_csv_execute_columns(path_to_csv::String)
     dataframe = CSV.read(path_to_csv, DataFrame)
@@ -239,10 +236,5 @@ function read_csv_execute_columns(path_to_csv::String)
         # end
         #end
     end
-
     return dataframe
-
 end
-
-
-
