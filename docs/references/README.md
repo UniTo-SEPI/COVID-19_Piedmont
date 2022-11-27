@@ -1,0 +1,67 @@
+# References
+
+## Cause-Specific Deaths & Hospitalizations
+
+| Title                                                        | Authors              |                           Journal                            | Year     |
+| ------------------------------------------------------------ | -------------------- | :----------------------------------------------------------: | -------- |
+| **[COVID-19: Indicazioni per la compilazione della scheda di morte](https://www.istat.it/it/files/2020/03/Covid_Indicazioni_scheda_morte.pdf)** |                      |                          **ISTAT**                           | **2020** |
+| **[Impatto dell’epidemia COVID-19 sulla mortalità: Cause di morte nei deceduti positivi a SARS-CoV-2](https://www.istat.it/it/archivio/245573)** |                      |                        **ISTAT, ISS**                        | **2020** |
+| **[Prima ondata della pandemia: Un’analisi della mortalità per causa e luogo del decesso](https://www.istat.it/it/archivio/256854)** |                      |                        **ISTAT, ISS**                        | **2020** |
+| **[Mortalità per causa e luogo del decesso nel periodo gennaio-aprile 2020 in confronto con gli stessi mesi del 2015-2019](https://www.istat.it/it/files//2020/03/TavoleStimaDecessiPerRegioneGennaioAprile_2015_2020.xlsx)** |                      |                        **ISTAT, ISS**                        | **2020** |
+| [Every Body Counts: Measuring Mortality From the COVID-19 Pandemic](https://doi.org/10.7326/M20-3100) | Kiang et al.         |                *Annals of Internal Medicine*                 | 2020     |
+| [Mortality impacts of the coronavirus disease (COVID-19) outbreak by sex and age: rapid mortality surveillance system, Italy, 1 February to 18 April 2020](https://doi.org/10.2807/1560-7917.ES.2020.25.19.2000620) | Michelozzi et al.    |                      *Eurosurveillance*                      | 2020     |
+| **[Differences in the clinical characteristics of COVID-19 patients who died in hospital during different phases of the pandemic: national data from Italy](https://doi.org/10.1007/s40520-020-01764-0)** | **Palmieri et al.**  |        ***Aging Clinical and Experimental Research***        | **2020** |
+| [Risk factors for mortality in hospitalized patients with COVID-19: a study in Milan, Italy](https://doi.org/10.1080/23744235.2020.1859131) | Abbattista et al.    |                    *Infectious Diseases*                     | 2020     |
+| [Temporal changes in co-morbidities and mortality in patients hospitalized for COVID-19 in Italy](https://doi.org/10.1016/j.ejim.2020.10.019) | Angeli et al.        |           *European Journal of Internal Medicine*            | 2020     |
+| [Comorbidities, Cardiovascular Therapies, and COVID-19 Mortality: A Nationwide, Italian Observational Study (ItaliCO)](https://doi.org/10.3389/fcvm.2020.585866) | Polverino et al.     |            *Frontiers in Cardiovascular Medicine*            | 2020     |
+| [**Multi-morbidity and frailty at death: A new classification of death records for an ageing world**](https://doi.org/10.1080/00324728.2020.1820558) | **Grippo et al.**    |              ***Population Studies***              | **2020** |
+| [**The Role of COVID-19 in the Death of SARS-CoV-2–Positive Patients: A Study Based on Death Certificates**](https://doi.org/10.3390/jcm9113459) | **Grippo et al.**    |              ***Journal of Clinical Medicine***              | **2020** |
+| [Early predictors of clinical outcomes of COVID-19 outbreak in Milan, Italy](https://doi.org/10.1016/j.clim.2020.108509) | Ciceri et al.        |                    *Clinical Immunology*                     | 2020     |
+| **[Clinical Characteristics of Hospitalized Individuals Dying With COVID-19 by Age Group in Italy](https://doi.org/10.1093/gerona/glaa146)** | **Palmieri et al.**  |         ***The Journals of Gerontology: Series A***          | **2020** |
+| **[Risk Factors Associated With Mortality Among Patients With COVID-19 in Intensive Care Units in Lombardy, Italy](http://jamanetwork.com/article.aspx?doi=10.1001/jamainternmed.2020.3539)** | **Grasselli et al.** |                 ***JAMA Internal Medicine***                 | **2020** |
+| [Mortality risk assessment in Spain and Italy, insights of the HOPE COVID-19 registry](https://doi.org/10.1007/s11739-020-02543-5) | Núñez-Gil et al.     |              *Internal and Emergency Medicine*               | 2020     |
+| [Factors associated with COVID-19-related death using OpenSAFELY](https://doi.org/10.1038/s41586-020-2521-4) | Williamson et al.    |                           *Nature*                           | 2020     |
+| [Case-Fatality Rate and Characteristics of Patients Dying in Relation to COVID-19 in Italy](http://jamanetwork.com/article.aspx?doi=10.1001/jama.2020.4683) | Onder et al.         |                            *JAMA*                            | 2020     |
+| **[COVID-19 and cardiovascular disease: from basic mechanisms to clinical perspectives](https://doi.org/10.1038/s41569-020-0413-9)** | **Nishiga et al.**   |               ***Nature Reviews Cardiology***                | **2020** |
+| [Presenting Characteristics, Comorbidities, and Outcomes Among 5700 Patients Hospitalized With COVID-19 in the New York City Area]() | Richardson et al.    |                            *JAMA*                            | 2020     |
+| [Nuovi codici ICD-10 istituiti dall’Organizzazione Mondiale della Sanità nel corso del 2020](https://www.istat.it/it/files//2020/03/Nuovi-codici-ICD.pdf) |                      |                            ISTAT                             | 2021     |
+| [Rapporto ad interim su definizione, certificazione e classificazione delle cause di morte](https://www.istat.it/it/archivio/244763) |                      |                      ISTAT, ISS, INAIL                       | 2021     |
+| [Estimating COVID-19 mortality in Italy early in the COVID-19 pandemic](https://doi.org/10.1038/s41467-021-22944-0) | Modi et al.          |                   *Nature Communications*                    | 2021     |
+| [COVID-19 mortality in Italy varies by patient age, sex and pandemic wave](https://doi.org/10.1101/2021.10.01.21264359) | Minnai et al.        |                     *medRxiv pre-print*                      | 2021     |
+| **[Comorbidity status of deceased COVID-19 in-patients in Italy](https://doi.org/10.1007/s40520-021-01914-y)** | **Vetrano et al.**   |        ***Aging Clinical and Experimental Research***        | **2021** |
+| [Joint effect of heart failure and coronary artery disease on the risk of death during hospitalization for COVID-19](https://doi.org/10.1016/j.ejim.2021.04.007) | Angeli et al.        |           *European Journal of Internal Medicine*            | 2021     |
+| [Diabetes is most important cause for mortality in COVID-19 hospitalized patients: Systematic review and meta-analysis](https://doi.org/10.1007/s11154-021-09630-8) | Corona et al.        |        *Reviews in Endocrine and Metabolic Disorders*        | 2021     |
+| **[Evolution of Pathology Patterns in Persons Who Died From COVID-19 in Italy: A National Study Based on Death Certificates](https://doi.org/10.3389/fmed.2021.645543)** | **Grippo et al.**    |                 ***Frontiers in Medicine***                  | **2021** |
+| [Excess Mortality in Italy During the COVID-19 Pandemic: Assessing the Differences Between the First and the Second Wave, Year 2020](https://doi.org/10.3389/fpubh.2021.669209) | Dorrucci et al.      |                 *Frontiers in Public Health*                 | 2021     |
+| [International comparisons of COVID-19 deaths in the presence of comorbidities require uniform mortality coding guidelines](https://doi.org/10.1093/ije/dyaa276) | Singh                |           *International Journal of Epidemiology*            | 2021     |
+| **[Diagnosis-wide analysis of COVID-19 complications: an exposure-crossover study](https://doi.org/10.1503/cmaj.201686)** | **Murk et al.**      |          ***Canadian Medical Association Journal***          | **2021** |
+| [Validation of diagnosis codes to identify hospitalized COVID-19 patients in health care claims data](https://doi.org/10.1002/pds.5401) | Kluberg et al.       |            *Pharmacoepidemiology and Drug Safety*            | 2021     |
+| [Place and Underlying Cause of Death During the COVID-19 Pandemic: Retrospective Cohort Study of 3.5 Million Deaths in England and Wales, 2014 to 2020](https://doi.org/10.1016/j.mayocp.2021.02.007) | Wu et al.            |                  *Mayo Clinic Proceedings*                   | 2021     |
+| **[Characterizing COVID-19 clinical phenotypes and associated comorbidities and complication profiles](https://doi.org/10.1371/journal.pone.0248956)** | **Lusczek et al.**   |                        ***PLoS ONE***                        | **2021** |
+| **[Different approaches to the analysis of causes of death during the COVID-19 epidemic](https://doi.org/10.26355/eurrev_202105_25844)** | **Fedeli et al.**    |  ***European Review Medical and Pharmacological Sciences***  | **2021** |
+| **[Causes of Death during the First COVID-19 Pandemic Wave in Italy: A Comparison with Some European Countries](https://doi.org/10.3390/covid1040060)** | **Grande et al.**    |                         ***COVID***                          | **2021** |
+| **[Analysing complications of COVID-19 from death certificates: which ones kill most?](https://www.istat.it/it/files/2021/05/RSU-1_2021_Article-3.pdf)** | **Orsi et al.**      |            ***Rivista di Statistica Ufficiale***             | **2021** |
+| **[Variation in Cause-Specific Mortality Rates in Italy during the First Wave of the COVID-19 Pandemic: A Study Based on Nationwide Data](https://doi.org/10.3390/ijerph19020805)** | **Grande et al.**    | ***International Journal of Environmental Research and Public Health*** | **2022** |
+| **[Direct and indirect mortality impacts of the COVID-19 pandemic in the US, March 2020-April 2021](https://doi.org/10.1101/2022.02.10.22270721)** | **Lee et al.**       |                   ***medRxiv pre-print***                    | **2022** |
+| **[Overall and cause-specific hospitalisation and death after COVID-19 hospitalisation in England: A cohort study using linked primary care, secondary care, and death registration data in the OpenSAFELY platform](https://doi.org/10.1371/journal.pmed.1003871)** | **Bhaskaran et al.** |                     ***PLoS Medicine***                      | **2022** |
+| **[Increase in Massachusetts deaths with ICD-10 codes associated with COVID-19 during the first four months of 2020](https://doi.org/10.1016/j.dialog.2022.100004)** | **Hansen et al.**    |                     ***PLoS Medicine***                      | **2022** |
+| **[Fraction of COVID-19 hospitalizations and deaths attributable to chronic diseases](https://doi.org/10.1016/j.ypmed.2021.106917)** | **Reyes-Sánchez**    |                  ***Preventive Medicine***                   | **2022** |
+| **[Deaths related to pulmonary embolism and cardiovascular events before and during the 2020 COVID-19 pandemic: An epidemiological analysis of data from an Italian high-risk area](https://doi.org/10.1016/j.thromres.2022.02.008)** | **Voci et al.**      |                  ***Thrombosis Research***                   | **2022** |
+| **[Excess Deaths Associated with COVID-19: Provisional Death Counts for Coronavirus Disease](https://www.cdc.gov/nchs/nvss/vsrr/covid19/excess_deaths.htm)** | **CDC**              |                          ***NCHS***                          | **2022** |
+| **[Excess mortality and mortality displacement in England and Wales: 2020 to mid-2021](https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/articles/excessmortalityandmortalitydisplacementinenglandandwales/2020tomid2021#excess-mortality-and-mortality-displacement-by-cause-of-death)** | **ONS**              |                                                   | **2022** |
+|                                                              |                      |                                                              |          |
+
+## Latent Initial Infections
+
+| Title                                                        | Authors        |              Journal               | Year |
+| ------------------------------------------------------------ | -------------- | :--------------------------------: | ---- |
+| [SARS-CoV-2 has been circulating in northern Italy since December 2019: Evidence from environmental monitoring](https://doi.org/10.1016/j.scitotenv.2020.141711) | La Rosa et al. | *Science of The Total Environment* | 2021 |
+| [Cryptic transmission of SARS-CoV-2 and the first COVID-19 wave](https://doi.org/10.1038/s41586-021-04130-w) | Davis et al.   |              *Nature*              | 2021 |
+| [The early phase of the COVID-19 epidemic in Lombardy, Italy](https://doi.org/10.1016/j.epidem.2021.100528) | Cereda et al.  |            *Epidemics*             | 2021 |
+
+## Data Quality 
+
+| Title                                                        | Authors          |   Journal    | Year |
+| ------------------------------------------------------------ | ---------------- | :----------: | ---- |
+| [Real-World Evidence of COVID-19 Patients’ Data Quality in the Electronic Health Records](https://doi.org/10.3390/healthcare9121648) | Binkheder et al. | *Healthcare* | 2021 |
+
