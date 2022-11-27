@@ -41,13 +41,11 @@ function make_intermediate_output_folder_structure(absolute_path_to_intermediate
             mkpath(joinpath(absolute_path_to_intermediate_output, run_name,  intermediate_output_folder,"COVID-19","pi_10"))
         end
 
-
         if any(occursin.(("3-hospitalization_period", "4-quarantine_isolation", "5-end_of_clinical_progression", "6-symptoms_onset"),Ref(intermediate_output_folder)))
             mkpath(joinpath(absolute_path_to_intermediate_output, run_name, intermediate_output_folder, "COVID-19","pi_30", "data_quality"))
             mkpath(joinpath(absolute_path_to_intermediate_output, run_name, intermediate_output_folder, "COVID-19","pi_20", "data_quality"))
             mkpath(joinpath(absolute_path_to_intermediate_output, run_name, intermediate_output_folder, "COVID-19","pi_10", "data_quality"))
-        end
-        
+        end        
 
         if any(occursin.(("plots_variables"),Ref(intermediate_output_folder)))
             mkpath(joinpath(absolute_path_to_intermediate_output, run_name, intermediate_output_folder, "raw_line_list", "pi_30"))
@@ -67,8 +65,6 @@ function make_intermediate_output_folder_structure(absolute_path_to_intermediate
             mkpath(joinpath(absolute_path_to_intermediate_output, run_name, intermediate_output_folder, "incidences", "pi_20"))
             mkpath(joinpath(absolute_path_to_intermediate_output, run_name, intermediate_output_folder, "incidences", "pi_10"))
             mkpath(joinpath(absolute_path_to_intermediate_output, run_name, intermediate_output_folder, "incidences", "SDO"))
-
-
         end
     end
 end
@@ -168,7 +164,6 @@ function make_intermediate_plots_folder_structure(absolute_path_to_intermediate_
     end
 end
 
-
 """
 make_output_plots_folder_structure(absolute_path_to_intermediate_output::String, run_name::String)
 
@@ -201,7 +196,7 @@ function make_output_plots_folder_structure(absolute_path_to_output_plots::Strin
 
             mkpath(joinpath(absolute_path_to_output_plots, run_name, output_folder, "SDO","variables"))
         end
-
+        
         if cmp(output_folder, "incidences") == 0
             mkpath(joinpath(absolute_path_to_output_plots, run_name, output_folder, "COVID-19", "pi_10"))
             mkpath(joinpath(absolute_path_to_output_plots, run_name, output_folder,"COVID-19", "pi_20" ))
@@ -209,7 +204,6 @@ function make_output_plots_folder_structure(absolute_path_to_output_plots::Strin
 
             mkpath(joinpath(absolute_path_to_output_plots, run_name, output_folder, "SDO"))
         end
-
         # if occursin("4-delays",path)
         #     mkpath(joinpath(path, "COVID-19", "pi_10"))
         #     mkpath(joinpath(path, "COVID-19", "pi_20"))
@@ -218,4 +212,3 @@ function make_output_plots_folder_structure(absolute_path_to_output_plots::Strin
         #end
     end
 end
-
