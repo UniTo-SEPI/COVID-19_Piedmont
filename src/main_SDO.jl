@@ -3,7 +3,7 @@
 #############################
 
 using Pkg                               # Import package manager
-Pkg.activate("./Code/Julia")            # Activate Julia environment
+Pkg.activate(".")                       # Activate Julia environment
 Pkg.instantiate()                       # Instantiate the Julia environment
 
 #############################
@@ -16,7 +16,7 @@ using Dates, Missings                   # Data types
 using DataStructures, DataFrames        # Data wrangling
 using Statistics                        # Data analysis and statistics
 using Plots, Plots.PlotMeasures         # Data visualization
-using Distributions                     #, DistributionsUtils # Probability distributions
+using Distributions                     # Probability / Statistical Distributions
 using Optim                             # Parameter optimization
 using JLD2, Serialization               # Julia data structures saving
 using ProgressMeter                     # Progress bar
