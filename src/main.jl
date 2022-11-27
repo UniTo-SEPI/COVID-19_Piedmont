@@ -3,7 +3,7 @@
 #############################
 
 using Pkg                               # Import package manager
-Pkg.activate("./Code/Julia")            # Activate Julia environment
+Pkg.activate(".")                       # Activate Julia environment
 Pkg.instantiate()                       # Instantiate the Julia environment
 
 #############################
@@ -16,7 +16,7 @@ using Dates, Missings                   # Data types
 using DataStructures, DataFrames        # Data wrangling
 using Statistics                        # Data analysis and statistics
 using Plots, Plots.PlotMeasures         # Data visualization
-using Distributions                     #, DistributionsUtils # Probability distributions
+using Distributions                     # Probability / Statistical Distributions
 using Optim                             # Parameter optimization
 using JLD2, Serialization               # Julia data structures saving
 using ProgressMeter                     # Progress bar
@@ -29,16 +29,6 @@ using Random                            # Randomizing
 #############################
 
 # Include Julia files containing all the necessary functions
-# include("./Code/Julia/utilities.jl");
-# include("./Code/Julia/folder_structure.jl");
-# include("./Code/Julia/raw_line_list.jl");
-# include("./Code/Julia/sdo_sm.jl")
-# include("./Code/Julia/processed_line_list.jl");
-# include("./Code/Julia/sequences.jl");
-# include("./Code/Julia/time_delays.jl");
-# include("./Code/Julia/plotting.jl");
-
-
 include("folder_structure.jl");
 include("utilities.jl");
 include("raw_line_list.jl");
@@ -52,15 +42,7 @@ include("plotting.jl");
 ####### INSTRUCTIONS ########
 #############################
 
-# Please set the pwd to the root folder of SEPI repository (if you are using VSCode, click File -> Open Folder -> .../SEPI)
-
-# Path to SEPI repository folder
-const absolute_path_to_repository_moroni = "D:\\GitHub\\SEPI"
-const absolute_path_to_repository_monticone = "/Users/pietro/GitHub/SEPI"
-const absolute_path_to_repository_strippoli = raw"//SERVER-EPI5/dati_progetti/covid19/Valorizzazioni/ISI/SEPI-main"
-const absolute_path_to_repository_ferracin = raw"C:\Progetti\SEPI"
-const absolute_path_to_repository = absolute_path_to_repository_ferracin
-
+const absolute_path_to_repository = dirname(@__DIR__) # "/path/to/COVID-19_Data_Modelling"
 
 # Path to folder that contains:
 # - join_all.sas7bdat
@@ -70,21 +52,20 @@ const absolute_path_to_repository = absolute_path_to_repository_ferracin
 # - trasf_trasposti_15_19.sas7bdat
 #
 # It must be absolute since these data cannot be part of the repository
-const absolute_path_to_input_data = raw"C:\Progetti\True_input" #"./Fake_input" #raw"C:\Progetti\True_input" # "/Users/pietro/GitHub/SEPI/Fake_input" 
+const absolute_path_to_input_data = joinpath(absolute_path_to_repository, "data/fake-input")
 
 # Path to folder that will contain intermediate outputs
 # It must be absolute since these data cannot be part of the repository
-const absolute_path_to_intermediate_output = raw"C:\Progetti\Intermediate_Output" #raw"C:\Progetti\Fake_intermediate_output" #raw"C:\Progetti\Intermediate_Output" 
+const absolute_path_to_intermediate_output = joinpath(absolute_path_to_repository, "data/fake-intermediate-output")
 
 # Absolute path to output folder
-const absolute_path_to_output = ".\\Output" #".\\Output" #".\\Fake_output"
+const absolute_path_to_output = joinpath(absolute_path_to_repository, "data/fake-output")
 
 # Absolute path to folder where to store output
-const absolute_path_to_output_plots = ".\\Output_Plots" #".\\Fake_output_plots" #".\\Output_Plots" 
-
+const absolute_path_to_output_plots = joinpath(absolute_path_to_repository, "images/fake-output")
 
 const save = true
-const skip_sdo_pre_processing = true
+const skip_sdo_pre_processing = false
 
 #############################
 ###### DATA LOADING #########
@@ -96,7 +77,7 @@ const positivi_quarantena_path = joinpath(absolute_path_to_input_data, "positivi
 const trasf_trasposti_path = joinpath(absolute_path_to_input_data, "trasf_trasposti.sas7bdat")
 const mort_2015_2018_path = joinpath(absolute_path_to_input_data, "mort_2015_2018.sas7bdat")
 # Change this to trasf_trasposti_15_20
-const trasf_trasposti_15_19_path = joinpath(absolute_path_to_input_data, "trasf_trasposti_1520_new.sas7bdat") #"trasf_trasposti_1520_new.sas7bdat"
+const trasf_trasposti_15_19_path = joinpath(absolute_path_to_input_data, "trasf_trasposti_15_19.sas7bdat") #"trasf_trasposti_1520_new.sas7bdat"
 
 # Load .sas7bdat files and convert them to DataFrames
 const join_all_df             = load_sas7bdat(join_all_path)
@@ -175,7 +156,7 @@ const MVP = missing
 const is_MVP = ismissing
 
 # Load GEMs
-const I10_I9_GEMs_dict = get_GEM_dict_from_cdc_gem_txt(".\\Code\\Julia\\ICD_GEMs.jl\\raw_gems\\2018_I10gem.txt", "I10_I9")
+const I10_I9_GEMs_dict = get_GEM_dict_from_cdc_gem_txt("./src/ICD_GEMs.jl/raw_gems/2018_I10gem.txt", "I10_I9")
 
 #=  # ICD-10 -> ICD-9 translations of InPhyT 2022 codes
 ICD_9_CM_translations = Dict(
@@ -225,9 +206,9 @@ ICD_9_CM_translations = Dict(
                                 "External causes" => execute_applied_mapping(I10_I9_GEMs_dict, ["S00-S99", "T00-T98", "V01-V99", "W00-W99", "X00-X99", "Y00-Y98"], "all")
 )
  =#
-# ICD-10 -> ICD-9 transaltions of Orsi 2021 codes
+# ICD-10 -> ICD-9 translations of Orsi 2021 codes
 const ICD_9_CM_translations_orsi = Dict(
-                                # Antencedents
+                                # Antecedents
                                 "Neoplasms"                          => execute_applied_mapping(I10_I9_GEMs_dict, ["C00-C99", "D00-D48"], "all"),
                                 "Chronic lower respiratory diseases" => execute_applied_mapping(I10_I9_GEMs_dict, ["J40-J47"], "all"),
                                 "Cerebrovascular accident"           => execute_applied_mapping(I10_I9_GEMs_dict, ["I60-I66", "I670", "I672-I679"], "all"),
@@ -257,7 +238,7 @@ const ICD_9_CM_translations_orsi = Dict(
                                 "Symptoms and signs involving the respiratory system" => execute_applied_mapping(I10_I9_GEMs_dict, ["R04-R09"], "all"),
                                 "Systemic inflammatory response syndrome (SIRS)" => execute_applied_mapping(I10_I9_GEMs_dict, ["R65"], "all"),
                                 # Macro-aggregations
-                                "antecendents" => execute_applied_mapping(I10_I9_GEMs_dict, ["C00-C99", "D00-D48", "J40-J47", "I60-I66", "I670", "I672-I679", "I10-I13", "F00-F03", "I25", "E10-E14", "I48", "G30-G31", "N18"], "all"),
+                                "antecedents" => execute_applied_mapping(I10_I9_GEMs_dict, ["C00-C99", "D00-D48", "J40-J47", "I60-I66", "I670", "I672-I679", "I10-I13", "F00-F03", "I25", "E10-E14", "I48", "G30-G31", "N18"], "all"),
                                 "precipitating"=> execute_applied_mapping(I10_I9_GEMs_dict, ["I50-I51", "A40-A41", "B37", "B49", "B99", "R570-R571", "R573-R579", "N17", "N19", "J00-J11", "J30-J39", "J60-J70", "J820-J848", "J85-J99", "E86-E87", "I20-I24", "I26", "A00-A39", "A42-A99", "B00-B36", "B38-B48", "B50-B98", "I00-I09", "I90-I99","J81"], "all"),
                                 "complications" => execute_applied_mapping(I10_I9_GEMs_dict, ["J12-J18", "J849", "J960", "J969", "J80", "R04-R09", "R65" ], "all"),
 
@@ -268,9 +249,9 @@ const ICD_9_CM_translations_orsi = Dict(
 
 
 
-#=     #ICD-10 -> ICD-9 transaltions of Orsi 2021 codes
+#=     #ICD-10 -> ICD-9 translations of Orsi 2021 codes
 ICD_9_CM_translations_orsi_and_all_respiratory = Dict(
-    # Antencedents
+    # Antecedents
     "Neoplasms" => execute_applied_mapping(I10_I9_GEMs_dict, ["C00-C99", "D00-D48"], "all"),
     "Chronic lower respiratory diseases" => execute_applied_mapping(I10_I9_GEMs_dict, ["J40-J47"], "all"),
     "Cerebrovascular accident" => execute_applied_mapping(I10_I9_GEMs_dict, ["I60-I66", "I670", "I672-I679"], "all"),
@@ -1289,8 +1270,6 @@ for (run_name, with_riabilitativo, with_inizio_sintomi, with_quarantena_precauzi
     println("GC")
     GC.gc()
 
-
-
 #=     save_julia_variable(line_list_ricoveri_quarantene_fp_is_lim_pi_30, joinpath(absolute_path_to_intermediate_output, run_name,"plots_variables/processed_line_list/pi_30"), "line_list_ricoveri_quarantene_fp_is_lim_pi_30")
     save_julia_variable(line_list_ricoveri_quarantene_fp_is_lim_pi_20, joinpath(absolute_path_to_intermediate_output, run_name,"plots_variables/processed_line_list/pi_20"), "line_list_ricoveri_quarantene_fp_is_lim_pi_20")
     save_julia_variable(line_list_ricoveri_quarantene_fp_is_lim_pi_10, joinpath(absolute_path_to_intermediate_output, run_name,"plots_variables/processed_line_list/pi_10"), "line_list_ricoveri_quarantene_fp_is_lim_pi_10")
@@ -1333,7 +1312,6 @@ for (run_name, with_riabilitativo, with_inizio_sintomi, with_quarantena_precauzi
     println("GC")
     GC.gc()
 
-
     ## SDO
 
     #SDO_sequences_plots = OrderedDict{String,Dict{String,Plots.Plot}}()
@@ -1352,7 +1330,6 @@ for (run_name, with_riabilitativo, with_inizio_sintomi, with_quarantena_precauzi
     SDO_sequence_plots = nothing
     println("GC")
     GC.gc()
-
 
 #=     save_julia_variable(sequences_pi_30, joinpath(absolute_path_to_intermediate_output, run_name,"plots_variables/sequences/pi_30"), "sequences_pi_30")
     save_julia_variable(sequences_pi_20, joinpath(absolute_path_to_intermediate_output, run_name,"plots_variables/sequences/pi_20"), "sequences_pi_20")
@@ -1375,8 +1352,6 @@ for (run_name, with_riabilitativo, with_inizio_sintomi, with_quarantena_precauzi
     incidences_plots_pi_30    = nothing
     println("GC")
     GC.gc()
-
-
 
     incidences_plots_pi_20 = plot_incidences(incidences_pi_20, age_classes_representations; event_title_associations = event_title_incidences_COVID_19_plots, disease = "COVID-19")
     for (event, incidence_plot) in collect(incidences_plots_pi_20)
@@ -1412,7 +1387,6 @@ for (run_name, with_riabilitativo, with_inizio_sintomi, with_quarantena_precauzi
     code_specific_incidences_plots = nothing
     println("GC")
     GC.gc()
-
 
 #=     save_julia_variable(incidences_pi_30, joinpath(absolute_path_to_intermediate_output, run_name,"plots_variables/incidences/pi_30"), "incidences_pi_30")
     save_julia_variable(incidences_pi_30, joinpath(absolute_path_to_intermediate_output, run_name,"plots_variables/incidences/pi_20"), "incidences_pi_20")
