@@ -209,44 +209,43 @@ ICD_9_CM_translations = Dict(
 # ICD-10 -> ICD-9 translations of Orsi 2021 codes
 const ICD_9_CM_translations_orsi = Dict(
                                 # Antecedents
-                                "Neoplasms"                          => execute_applied_mapping(I10_I9_GEMs_dict, ["C00-C99", "D00-D48"], "all"),
-                                "Chronic lower respiratory diseases" => execute_applied_mapping(I10_I9_GEMs_dict, ["J40-J47"], "all"),
-                                "Cerebrovascular accident"           => execute_applied_mapping(I10_I9_GEMs_dict, ["I60-I66", "I670", "I672-I679"], "all"),
-                                "Hypertensive heart disease"         => execute_applied_mapping(I10_I9_GEMs_dict, ["I10-I13"], "all"),
-                                "Dementia"                           => execute_applied_mapping(I10_I9_GEMs_dict, ["F00-F03"], "all"),
-                                "Chronic ischemic heart disease" => execute_applied_mapping(I10_I9_GEMs_dict, ["I25"], "all"),
-                                "Diabetes mellitus" => execute_applied_mapping(I10_I9_GEMs_dict, ["E10-E14"], "all"),
-                                "Atrial fibrillation" => execute_applied_mapping(I10_I9_GEMs_dict, ["I48"], "all"),
-                                "Alzheimer disease" => execute_applied_mapping(I10_I9_GEMs_dict, ["G30-G31"], "all"),
-                                "Chronic renal failure" => execute_applied_mapping(I10_I9_GEMs_dict, ["N18"], "all"),
+                                "Neoplasms"                          => execute_applied_mapping(I10_I9_GEMs_dict, ["C00-C99", "D00-D48"]),
+                                "Chronic lower respiratory diseases" => execute_applied_mapping(I10_I9_GEMs_dict, ["J40-J47"]),
+                                "Cerebrovascular accident"           => execute_applied_mapping(I10_I9_GEMs_dict, ["I60-I66", "I670", "I672-I679"]),
+                                "Hypertensive heart disease"         => execute_applied_mapping(I10_I9_GEMs_dict, ["I10-I13"]),
+                                "Dementia"                           => execute_applied_mapping(I10_I9_GEMs_dict, ["F00-F03"]),
+                                "Chronic ischemic heart disease" => execute_applied_mapping(I10_I9_GEMs_dict, ["I25"]),
+                                "Diabetes mellitus" => execute_applied_mapping(I10_I9_GEMs_dict, ["E10-E14"]),
+                                "Atrial fibrillation" => execute_applied_mapping(I10_I9_GEMs_dict, ["I48"]),
+                                "Alzheimer disease" => execute_applied_mapping(I10_I9_GEMs_dict, ["G30-G31"]),
+                                "Chronic renal failure" => execute_applied_mapping(I10_I9_GEMs_dict, ["N18"]),
                                 # Precipitating conditions
-                                "Heart failure and other cardiac diseases" => execute_applied_mapping(I10_I9_GEMs_dict, ["I50-I51"], "all"),
-                                "Sepsis and infections of unspecified site" => execute_applied_mapping(I10_I9_GEMs_dict, ["A40-A41", "B37", "B49", "B99"], "all"),
-                                "Shock" => execute_applied_mapping(I10_I9_GEMs_dict, ["R570-R571", "R573-R579"], "all"),
-                                "Renal failure, acute and unspecified" => execute_applied_mapping(I10_I9_GEMs_dict, ["N17", "N19"], "all"),
-                                "Other diseases of the respiratory system" => execute_applied_mapping(I10_I9_GEMs_dict, ["J00-J11", "J30-J39", "J60-J70", "J820-J848", "J85-J99"], "all"),
-                                "Volume depletion and other fluid disorders" => execute_applied_mapping(I10_I9_GEMs_dict, ["E86-E87"], "all"),
-                                "Acute ischemic heart diseases" => execute_applied_mapping(I10_I9_GEMs_dict, ["I20-I24"], "all"),
-                                "Pulmonary embolism" => execute_applied_mapping(I10_I9_GEMs_dict, ["I26"], "all"),
-                                "Other infectious and parasitic diseases" => execute_applied_mapping(I10_I9_GEMs_dict, ["A00-A39", "A42-A99", "B00-B36", "B38-B48", "B50-B98"], "all"),
-                                "Other circulatory diseases" => execute_applied_mapping(I10_I9_GEMs_dict, ["I00-I09", "I90-I99"], "all"),
-                                "Pulmonary oedema" => execute_applied_mapping(I10_I9_GEMs_dict, ["J81"], "all"),
+                                "Heart failure and other cardiac diseases" => execute_applied_mapping(I10_I9_GEMs_dict, ["I50-I51"]),
+                                "Sepsis and infections of unspecified site" => execute_applied_mapping(I10_I9_GEMs_dict, ["A40-A41", "B37", "B49", "B99"]),
+                                "Shock" => execute_applied_mapping(I10_I9_GEMs_dict, ["R570-R571", "R573-R579"]),
+                                "Renal failure, acute and unspecified" => execute_applied_mapping(I10_I9_GEMs_dict, ["N17", "N19"]),
+                                "Other diseases of the respiratory system" => execute_applied_mapping(I10_I9_GEMs_dict, ["J00-J11", "J30-J39", "J60-J70", "J820-J848", "J85-J99"]),
+                                "Volume depletion and other fluid disorders" => execute_applied_mapping(I10_I9_GEMs_dict, ["E86-E87"]),
+                                "Acute ischemic heart diseases" => execute_applied_mapping(I10_I9_GEMs_dict, ["I20-I24"]),
+                                "Pulmonary embolism" => execute_applied_mapping(I10_I9_GEMs_dict, ["I26"]),
+                                "Other infectious and parasitic diseases" => execute_applied_mapping(I10_I9_GEMs_dict, ["A00-A39", "A42-A99", "B00-B36", "B38-B48", "B50-B98"]),
+                                "Other circulatory diseases" => execute_applied_mapping(I10_I9_GEMs_dict, ["I00-I09", "I90-I99"]),
+                                "Pulmonary oedema" => execute_applied_mapping(I10_I9_GEMs_dict, ["J81"]),
                                 # Complications
-                                "Pneumonia" => execute_applied_mapping(I10_I9_GEMs_dict, ["J12-J18", "J849"], "all"),
-                                "Respiratory failure" => execute_applied_mapping(I10_I9_GEMs_dict, ["J960", "J969"], "all"),
-                                "Adult respiratory distress syndrome (ARDS)" => execute_applied_mapping(I10_I9_GEMs_dict, ["J80"], "all"),
-                                "Symptoms and signs involving the respiratory system" => execute_applied_mapping(I10_I9_GEMs_dict, ["R04-R09"], "all"),
-                                "Systemic inflammatory response syndrome (SIRS)" => execute_applied_mapping(I10_I9_GEMs_dict, ["R65"], "all"),
+                                "Pneumonia" => execute_applied_mapping(I10_I9_GEMs_dict, ["J12-J18", "J849"]),
+                                "Respiratory failure" => execute_applied_mapping(I10_I9_GEMs_dict, ["J960", "J969"]),
+                                "Adult respiratory distress syndrome (ARDS)" => execute_applied_mapping(I10_I9_GEMs_dict, ["J80"]),
+                                "Symptoms and signs involving the respiratory system" => execute_applied_mapping(I10_I9_GEMs_dict, ["R04-R09"]),
+                                "Systemic inflammatory response syndrome (SIRS)" => execute_applied_mapping(I10_I9_GEMs_dict, ["R65"]),
                                 # Macro-aggregations
-                                "antecedents" => execute_applied_mapping(I10_I9_GEMs_dict, ["C00-C99", "D00-D48", "J40-J47", "I60-I66", "I670", "I672-I679", "I10-I13", "F00-F03", "I25", "E10-E14", "I48", "G30-G31", "N18"], "all"),
-                                "precipitating"=> execute_applied_mapping(I10_I9_GEMs_dict, ["I50-I51", "A40-A41", "B37", "B49", "B99", "R570-R571", "R573-R579", "N17", "N19", "J00-J11", "J30-J39", "J60-J70", "J820-J848", "J85-J99", "E86-E87", "I20-I24", "I26", "A00-A39", "A42-A99", "B00-B36", "B38-B48", "B50-B98", "I00-I09", "I90-I99","J81"], "all"),
-                                "complications" => execute_applied_mapping(I10_I9_GEMs_dict, ["J12-J18", "J849", "J960", "J969", "J80", "R04-R09", "R65" ], "all"),
+                                "antecedents" => execute_applied_mapping(I10_I9_GEMs_dict, ["C00-C99", "D00-D48", "J40-J47", "I60-I66", "I670", "I672-I679", "I10-I13", "F00-F03", "I25", "E10-E14", "I48", "G30-G31", "N18"]),
+                                "precipitating"=> execute_applied_mapping(I10_I9_GEMs_dict, ["I50-I51", "A40-A41", "B37", "B49", "B99", "R570-R571", "R573-R579", "N17", "N19", "J00-J11", "J30-J39", "J60-J70", "J820-J848", "J85-J99", "E86-E87", "I20-I24", "I26", "A00-A39", "A42-A99", "B00-B36", "B38-B48", "B50-B98", "I00-I09", "I90-I99","J81"]),
+                                "complications" => execute_applied_mapping(I10_I9_GEMs_dict, ["J12-J18", "J849", "J960", "J969", "J80", "R04-R09", "R65" ]),
 
-                                "Orsi" => execute_applied_mapping(I10_I9_GEMs_dict, ["C00-C99", "D00-D48", "J40-J47", "I60-I66", "I670", "I672-I679", "I10-I13", "F00-F03", "I25", "E10-E14", "I48", "G30-G31", "N18", "I50-I51", "A40-A41", "B37", "B49", "B99", "R570-R571", "R573-R579", "N17", "N19", "J00-J11", "J30-J39", "J60-J70", "J820-J848", "J85-J99", "E86-E87", "I20-I24", "I26", "A00-A39", "A42-A99", "B00-B36", "B38-B48", "B50-B98", "I00-I09", "I90-I99","J81", "J12-J18", "J849", "J960", "J969", "J80", "R04-R09", "R65"], "all"),
+                                "Orsi" => execute_applied_mapping(I10_I9_GEMs_dict, ["C00-C99", "D00-D48", "J40-J47", "I60-I66", "I670", "I672-I679", "I10-I13", "F00-F03", "I25", "E10-E14", "I48", "G30-G31", "N18", "I50-I51", "A40-A41", "B37", "B49", "B99", "R570-R571", "R573-R579", "N17", "N19", "J00-J11", "J30-J39", "J60-J70", "J820-J848", "J85-J99", "E86-E87", "I20-I24", "I26", "A00-A39", "A42-A99", "B00-B36", "B38-B48", "B50-B98", "I00-I09", "I90-I99","J81", "J12-J18", "J849", "J960", "J969", "J80", "R04-R09", "R65"]),
 
-                                "Diseases of the respiratory system" => execute_applied_mapping(I10_I9_GEMs_dict, ["J00-J99"], "all")
+                                "Diseases of the respiratory system" => execute_applied_mapping(I10_I9_GEMs_dict, ["J00-J99"])
                                 )
-
 
 
 #=     #ICD-10 -> ICD-9 translations of Orsi 2021 codes

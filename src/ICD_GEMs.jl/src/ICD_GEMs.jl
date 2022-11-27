@@ -189,9 +189,7 @@ function execute_applied_mapping(GEM::GEM{OrderedDict{String,OrderedDict{String,
             returned_codes_dict = OrderedDict(key => val for (key, val) in collect(GEM.data) if startswith(key, source_code))
             push!(returned_codes, unique(collect(Iterators.flatten(Iterators.flatten(Iterators.flatten(vcat([values(dct["Scenario"]) for dct in values(returned_codes_dict)]...))))))...)
         end
-
     end
-
     return returned_codes
 end
 
@@ -199,7 +197,7 @@ end
 """
     truncate_code(code::String, n_digits::Union{Int64,Nothing}) 
 
-Tuncate code after n digits, and treat digits beyond the third as decimals. Convert to Float64 before returning.
+Truncate code after n digits, and treat digits beyond the third as decimals. Convert to Float64 before returning.
 """
 function truncate_code(code::String, n_digits::Union{Int64,Nothing})
     #if !occursin("V",code) &&!occursin("v",code) && !occursin("E",code) && !occursin("NoDx",code)
