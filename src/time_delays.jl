@@ -246,9 +246,7 @@ function get_delays(line_list::DataFrame; Ts::Tuple{Vararg{Int64}}, date_start::
         #             end
         #         end
         #     end
-        # end
-    
-        
+        # end    
     end
 
     # Sort T OrderedDict by T, sort age_class OrderedDict by age_class sort dataframes by date
@@ -263,7 +261,6 @@ function get_delays(line_list::DataFrame; Ts::Tuple{Vararg{Int64}}, date_start::
             end
         end
     end
-
 
     # Fit parametric distributions
     if !isempty(`distributions_types`)
@@ -373,7 +370,6 @@ function get_delays(line_list::DataFrame; Ts::Tuple{Vararg{Int64}}, date_start::
             end
         end 
     end
-
 
 
     # Return dictionary of time delays 
