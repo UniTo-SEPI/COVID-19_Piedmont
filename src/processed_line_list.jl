@@ -565,7 +565,6 @@ function process_inizi_sintomi(line_list_ricoveri_quarantene_fp::DataFrame; MVP,
 end
 
 #### DATE LIMIT ####
-
 """
     delete_lines_exceeding_date(line_list_ricoveri_quarantene_fp_is::DataFrame, limit_date::Date)
 
