@@ -57,7 +57,7 @@ end
 #### DATA VISUALIZATION #####
 #############################
 
-# Plot Empirical vs Estimaed distributions
+# Plot Empirical vs Estimated distributions
 plts = []
 
 ## Set plot colors

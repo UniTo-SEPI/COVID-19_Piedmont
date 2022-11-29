@@ -2,9 +2,9 @@
 ######## ENVIRONMENT ########
 #############################
 
-using Pkg                                                                # Import package manager
-Pkg.activate("./Code/Julia")   # Activate Julia environment
-Pkg.instantiate()                                                        # Instantiate the Julia environment 
+using Pkg                               # Import package manager
+Pkg.activate(".")                       # Activate Julia environment
+Pkg.instantiate()                       # Instantiate the Julia environment 
 
 #############################
 ######### PACKAGES ##########
@@ -24,38 +24,36 @@ using ProgressMeter                     # Progress bar
 #############################
 
 # Include Julia files containing all the necessary functions 
-include("./Code/Julia/synthetic_utilities.jl")
-include("./Code/Julia/sequences.jl")
-include("./Code/Julia/time_delays.jl")
-include("./Code/Julia/plotting.jl")
+include("synthetic_utilities.jl");
+include("sequences.jl");
+include("time_delays.jl");
+include("plotting.jl");
 
 #############################
 ###### PRE-PROCESSING #######
 #############################
 
-# URL to piedmont confirmed cases data
+# URL to Piedmont confirmed cases data
 const piedmont_confirmed_url = "https://raw.githubusercontent.com/InPhyT/COVID19-Italy-Integrated-Surveillance-Data/main/3_output/data/iss_age_date_piedmont_confirmed.csv"
 
-# Download piedmont confirmed cases data
+# Download Piedmont confirmed cases data
 const piedmont_confirmed_raw_df = DataFrame(CSV.File(HTTP.get(piedmont_confirmed_url).body));
 
 # Aggregate age classes
 const max_line = findfirst(x -> x == Date("2020-12-15"), piedmont_confirmed_raw_df.date)
 const piedmont_confirmed_aggregated_df = DataFrame();
 piedmont_confirmed_aggregated_df.date = piedmont_confirmed_raw_df.date[2:max_line]
-piedmont_confirmed_aggregated_df[!, "0_39"] = sum([piedmont_confirmed_raw_df[!, "0_9"], piedmont_confirmed_raw_df[!, "10_19"], piedmont_confirmed_raw_df[!, "20_29"], piedmont_confirmed_raw_df[!, "30_39"]], dims=1)[1][2:max_line]
+piedmont_confirmed_aggregated_df[!, "0_39"] = sum([piedmont_confirmed_raw_df[!, "0_5"], piedmont_confirmed_raw_df[!, "6_12"], piedmont_confirmed_raw_df[!, "13_19"], piedmont_confirmed_raw_df[!, "20_29"], piedmont_confirmed_raw_df[!, "30_39"]], dims=1)[1][2:max_line]
 piedmont_confirmed_aggregated_df[!, "40_59"] = sum([piedmont_confirmed_raw_df[!, "40_49"], piedmont_confirmed_raw_df[!, "50_59"]], dims=1)[1][2:max_line]
 piedmont_confirmed_aggregated_df[!, "60_69"] = piedmont_confirmed_raw_df[!, "60_69"][2:max_line]
 piedmont_confirmed_aggregated_df[!, "70_79"] = piedmont_confirmed_raw_df[!, "70_79"][2:max_line]
 piedmont_confirmed_aggregated_df[!, "80_+"] = sum([piedmont_confirmed_raw_df[!, "80_89"], piedmont_confirmed_raw_df[!, "90_+"]], dims=1)[1][2:max_line]
 
 # Local root path
-const pietro_root_path = "/Users/pietro/GitHub/ComputationalEpidemiologyProject"
-const claudio_root_path = "D://GitHub//ComputationalEpidemiologyProject"
-const root_path = claudio_root_path
+const root_path = dirname(@__DIR__)
 
-# Load age structure data and age classes represnetation switching dictionaries
-const all_age_groups_path = joinpath(root_path, "Data/Population/Regional/Piemonte/Fine.csv");
+# Load age structure data and age classes representation switching dictionaries
+const all_age_groups_path = joinpath(root_path, "data/population/fine.csv");
 const all_age_groups = CSV.read(all_age_groups_path, DataFrame)[!, "population"]
 const age_classes_string_integer_dct = Dict("0_39" => 0, "40_59" => 40, "60_69" => 60, "70_79" => 70, "80_+" => 80)
 const age_classes_representations = Dict(0 => "[0,39]",
@@ -104,13 +102,13 @@ const event_title_incidences_SDO_plots = Dict(  "IQP" => Dict("prefix" =>"Daily"
 #############################
 
 # Load transitions
-const symptomatic_path = joinpath(root_path, "Data/Parameters/Transition_Rates/Symptomatic_Fraction/Symptomatic_Fraction_Piedmont_Davies.csv");
-const hospitalization_path = joinpath(root_path, "Data/Parameters/Transition_Rates/Hospitalization_Fraction/H_Fraction_Ferguson.csv");
-const icu_rate_path = joinpath(root_path, "Data/Parameters/Transition_Rates/ICU_Fraction/ICU_Fraction_Ferguson.csv");
-const ifr_path = joinpath(root_path, "Data/Parameters/Transition_Rates/IFR/IFR_Italy_Brazeau.csv");
-const hfr_path = joinpath(root_path, "Data/Parameters/Transition_Rates/HFR/HFR_France_Salje.csv");
+const symptomatic_path = joinpath(root_path, "data/parameters/transition-rates/Symptomatic_Fraction/Symptomatic_Fraction_Piedmont_Davies.csv");
+const hospitalization_path = joinpath(root_path, "data/parameters/transition-rates/Hospitalization_Fraction/H_Fraction_Ferguson.csv");
+const icu_rate_path = joinpath(root_path, "data/parameters/transition-rates/ICU_Fraction/ICU_Fraction_Ferguson.csv");
+const ifr_path = joinpath(root_path, "data/parameters/transition-rates/IFR/IFR_Italy_Brazeau.csv");
+const hfr_path = joinpath(root_path, "data/parameters/transition-rates/HFR/HFR_France_Salje.csv");
 
-# Aggregate transitions to the deisred age classes
+# Aggregate transitions to the desired age classes
 ## Symptomatic fraction
 const s = from_N_to_n("Mean", [1:4, 5:6, 7, 8, 8], all_age_groups, [1:4, 5:6, 7, 8, 9]; path=symptomatic_path, column_population_aggregations=[1:9, 10:19, 20:29, 30:39, 40:49, 50:59, 60:69, 70:79, 80:length(all_age_groups)])
 
@@ -198,7 +196,7 @@ const is_MVP = ismissing
 const synthetic_dataset = get_synthetic_dataset(piedmont_confirmed_aggregated_df; λ_SP_prior=λ_SP_prior, λ_TH_prior=λ_TH_prior_zhang_lognormal, λ_H_priors=λ_H_priors_zardini, λ_ICU_priors=λ_HICU_priors_zardini, λ_R_prior=λ_R_prior, λ_Q_prior=λ_Q_prior, symptomatic_fraction=s, quarantena_precauzionale_fraction=0.3, hospitalization_rate=η, ICU_rate=χ, rehabilitative_rate=0.8, infection_fatality_ratio=δ, age_classes_string_integer_dct=age_classes_string_integer_dct, MVP=MVP, is_MVP=is_MVP)
 
 # Save synthetic dataset
-CSV.write("./Synthetic_input/synthetic_dataset.csv", synthetic_dataset)
+CSV.write(joinpath(root_path, "data/synthetic-input/synthetic_input.csv"), synthetic_dataset)
 
 #############################
 ######## SEQUENCES ##########
@@ -206,13 +204,13 @@ CSV.write("./Synthetic_input/synthetic_dataset.csv", synthetic_dataset)
 
 # Get censored and non-censored synthetic sequences
 const synthetic_sequences = get_sequences(synthetic_dataset, lower_date_limit=Date("2020-01-01"), upper_date_limit=Date("2020-12-31"); MVP=MVP, is_MVP=is_MVP)
-const synthetic_sequences_censored = apply_privacy_policy(synthetic_sequences)
+const synthetic_sequences_censored, data_quality_synthetic_sequences= apply_privacy_policy(synthetic_sequences)
 const synthetic_incidences = aggregate_sequences(synthetic_sequences, Date("2020-01-01"), Date("2020-12-31"))
-const synthetic_incidences_censored_1, data_quality_synthetic_incidences_1 = apply_privacy_policy(synthetic_incidences) #get_sequences(synthetic_dataset; lower_date_limit = Date("2020-01-01"), upper_date_limit = Date("2020-12-31"), aggregate = true, privacy_policy = true, MVP = MVP, is_MVP = is_MVP)
+const synthetic_incidences_censored, data_quality_synthetic_incidences = apply_privacy_policy(synthetic_incidences) #get_sequences(synthetic_dataset; lower_date_limit = Date("2020-01-01"), upper_date_limit = Date("2020-12-31"), aggregate = true, privacy_policy = true, MVP = MVP, is_MVP = is_MVP)
 
 # Save censored synthetic sequences
-save_sequences_as_csv(synthetic_sequences_censored, "./Synthetic_output/sequences", age_classes_representations)
-save_incidences_as_csv(synthetic_incidences_censored, "./Synthetic_output/incidences")
+save_sequences_as_csv(synthetic_sequences_censored, joinpath(root_path, "data/synthetic-output/sequences"), age_classes_representations)
+save_incidences_as_csv(synthetic_incidences_censored, joinpath(root_path, "data/synthetic-output/incidences"))
 
 #############################
 ######## TIME DELAYS ########
@@ -227,11 +225,11 @@ const synthetic_delays, synthetic_delays_frequencies = get_delays(synthetic_data
 
 # Save synthetic time delay distributions
 ## Censored absolutes
-save_delays_as_csv(synthetic_delays_censored, "./Synthetic_output/time_delays/empirical_absolute_distributions")
+save_delays_as_csv(synthetic_delays, joinpath(root_path, "data/synthetic-output/time-delays/empirical-absolute-distributions"))
 ## Frequencies
-save_delays_as_csv(synthetic_delays_frequencies, "./Synthetic_output/time_delays/empirical_frequencies_distributions")
+save_delays_as_csv(synthetic_delays_frequencies, joinpath(root_path, "data/synthetic-output/time-delays/empirical-frequency-distributions"))
 ## Estimated
-save_estimated_delay_distributions(synthetic_delay_distributions, "./Synthetic_output/time_delays/estimated_distributions", "synthetic_estimated_delay_distributions")
+save_estimated_delay_distributions(synthetic_delay_distributions, joinpath(root_path, "data/synthetic-output/time-delays/estimated-distributions"))
 
 #############################
 ##### DATA VISUALIZATION ####
@@ -249,31 +247,35 @@ rich_synthetic_dataset.ID = collect(1:size(rich_synthetic_dataset, 1))
 
 const synthetic_line_list_plot = plot_line_list_processed(rich_synthetic_dataset, MVP, is_MVP,
     mode=:hlines_annotations,
-    title="Synthetic COVID-19 individual-level surveillance data in Piedmont",
+    title="Synthetic COVID-19 Individual-Level Surveillance Data in Piedmont",
     size=(2200, 2000),
     lw=15
 )
 
 # Save synthetic line lust plot
-savefig(synthetic_line_list_plot, "./Slides/Data_Modelling/images/2-processed_line_list/synthetic_input/synthetic_line_list_plot.png")
+savefig(synthetic_line_list_plot, joinpath(root_path, "images/plots/synthetic-input/synthetic_line_list_plot.png"))
 
 # Plot synthetic sequences
 const sequences_plots = plot_sequences(synthetic_sequences, age_classes_representations; paltt=cgrad(:Paired_9, categorical=true));
 
 # Save sequences plots
 for (sequence, plt) in collect(sequences_plots)
-    savefig(plt, joinpath("./Slides/Data_Modelling/images/3-sequences/synthetic_input", sequence))
+    savefig(plt, joinpath(root_path, "images/plots/synthetic-output/sequences", sequence))
 end
 
-include("./Code/Julia/plotting.jl")
 const synthetic_incidences_plots = plot_incidences(synthetic_incidences, age_classes_representations; event_title_associations = event_title_incidences_SDO_plots, disease = "COVID-19")
+
+# Save incidences plots
+for (incidence, plt) in collect(synthetic_incidences_plots)
+    savefig(plt, joinpath(root_path, "images/plots/synthetic-output/incidences", incidence))
+end
 
 # Plot synthetic time delay distributions
 const delays_plots = plot_delays(synthetic_delays_frequencies, 1, age_classes_representations)
 
 # Save time delays distributions plots
 for (delay, plt) in collect(delays_plots)
-    savefig(plt, joinpath("./Slides/Data_Modelling/images/4-time_delays/synthetic_input", delay))
+    savefig(plt, joinpath(root_path, "images/plots/synthetic-output/time-delays", delay))
 end
 
 # Plot estimated bvs empirical time delays distributions
