@@ -1,2 +1,2 @@
-data_inizio,data_fine,delay,frequenza_delay
-2020-04-01,2020-04-01,0,1.0
+data_inizio,data_fine,delay,frequenza_delay,binned_frequenza_delay
+2020-11-04,2020-11-05,10,1.0,1.0
