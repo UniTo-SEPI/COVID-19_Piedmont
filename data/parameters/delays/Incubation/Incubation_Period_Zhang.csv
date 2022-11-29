@@ -1,0 +1,4 @@
+Distribution, Parameter1_Mean, Parameter1_SD, Parameter2_Mean, Parameter2_SD, Mean, Mean_95%CI_Lower, Mean_95%CI_Upper, AIC
+Gamma,     4.23, 1.28,  0.81,  0.24, 5.2, 1.5, 11.3, 104.9
+Weibull,   2.03, 0.31,  5.84,  0.56, 5.2, 1.0, 10.9, 106.8
+Lognormal, 1.54, 0.092, 0.47, 0.072, 5.2, 1.8, 12.4, 103.9

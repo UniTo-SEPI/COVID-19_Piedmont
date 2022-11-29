@@ -1,0 +1,12 @@
+Epidemic_Period, Age, Distribution, Median, IQR_Lower, IQR_Upper, Overdispersion, Mean
+All, 0-39,            Empirical,   1, 0, 5, ,
+All, 40-59,           Empirical,  2, 0, 6, ,
+All, 60-69,           Empirical,  3, 0, 7, ,
+All, 70-79,           Empirical,  4, 1, 7, ,
+All, 80+,             Empirical,  2, 0, 11.5, ,
+All, Unknown,         Empirical,  0, 0, 0, , 
+All, All,             Empirical, 3, 0, 6, ,
+Pre 16-03-2020, All,  Empirical, 3, 0, 6, ,
+Post 16-03-2020, All, Empirical, 4, 0, 8, ,
+Unknown, All,         Empirical, 0, 0, 4, ,
+All, All,             Negative Binomial, , , , 0.570, 5.309

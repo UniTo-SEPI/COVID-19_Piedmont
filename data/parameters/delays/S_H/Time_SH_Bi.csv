@@ -1,0 +1,3 @@
+Surveillance_Strategy, Distribution, Parameter1, Parameter1_95%CI_Lower, Parameter1_95%CI_Upper, Parameter2, Parameter2_95%CI_Lower, Parameter2_95%CI_Upper, Mean, Mean_95%CI_Lower, Mean_95%CI_Upper
+Contact-Based, Lognormal, 0.74, 0.55, 0.95, 0.64, 0.55, 0.71, 2.57, 2.06, 3.16
+Symptom-Based, Lognormal, 1.23, 1.12, 1.33, 0.79, 0.74, 0.83, 4.64, 4.13, 5.1

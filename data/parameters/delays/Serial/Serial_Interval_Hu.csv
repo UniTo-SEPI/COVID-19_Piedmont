@@ -1,0 +1,4 @@
+Period,Distribution,Shape_Mean,Shape_SD,Rate_Mean,Rate_SD,Shift,Mean,Quantile_2.5%,Quantile_97.5%
+Overall, Gamma, 9.68, 0.86, 0.48, 0.04, 14.5, 5.5, -5.0, 19.9
+Jan5 - Jan23, Gamma, 19.07, 2.54, 0.88, 0.12, 14.5, 7.0, -1.5, 17.7
+Jan24 - Apr2, Gamma, 6.59, 0.87, 0.35, 0.05, 14.5, 4.1, -7.3,  20.9

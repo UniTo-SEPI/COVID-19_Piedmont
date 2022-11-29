@@ -1,0 +1,3 @@
+Surveillance_Strategy,Distribution, μ ,μ_95%CI_Lower,μ_95%CI_Upper,σ,σ_95%CI_Lower,σ_95%CI_Upper,Mean,Mean_95%CI_Lower,Mean_95%CI_Upper
+Contact-Based, Lognormal, 0.77, 0.53, 0.97, 0.67, 0.56, 0.75, 2.71, 2.08, 3.31
+Symtpom-Based, Lognormal, 1.22, 1.12, 1.31, 0.78, 0.73, 0.83, 4.58, 4.13, 5.02

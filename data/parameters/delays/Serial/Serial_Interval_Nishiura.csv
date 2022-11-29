@@ -1,0 +1,7 @@
+Distribution, WAIC, D_WAIC, Weight, Truncation, Mean, Mean_95%CI_Lower, Mean_95%CI_Upper, SD, SD_95%CI_Lower, SD_95%CI_Upper, Median, Median_95%CI_Lower, Median_95%CI_Upper
+Lognormal, 128.0, 0.00, 0.945, No Truncation, 4.6, 3.7, 5.7, 2.8, 1.8, 4.3, 3.9, 3.1, 4.8
+Gamma, 129.1, 1.10, 0.027, No Truncation, 4.8, 3.9, 5.9, 2.7, 1.9, 3.9, 4.2, 3.4, 5.3
+Weibull, 130.4, 2.45, 0.027, No Truncation, 4.8, 3.9, 5.9, 2.6, 2.0, 3.6, 4.4, 3.5, 5.5
+Lognormal, 224.0, 0.00, 1.00, Right Truncation, 4.7, 3.7, 6.0, 2.9, 1.9, 4.9, 4.0, 3.1, 4.9
+Gamma, 225.4, 1.39, 0.00, Right Truncation, 4.9, 3.9, 6.3, 2.8, 2.0, 4.3, 4.3, 3.4, 5.5
+Weibull, 226.8, 2.77, 0.00, Right Truncation, 4.9, 3.9, 6.1, 2.7, 2.0, 3.9, 4.5, 3.5, 5.6

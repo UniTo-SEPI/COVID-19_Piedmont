@@ -1,0 +1,7 @@
+Age, Short_Delays_Proportion, Distribution, Regime, Mean, Mean_Parametrization, Median, Median_Parametrization
+0-69, 0.11, Exponential, Short Delays, 0.67, , , 
+70-69, 0.13, Exponential, Short Delays, 0.67, , , 
+≥80, 0.18, Exponential, Short Delays, 0.67, , , 
+0-69, 0.11, Lognormal, Longer Delays, 15.5, 21.2, 11.4, 12.4
+70-69, 0.13, Lognormal, Longer Delays, 11.6, 12.6, 8.4, 8.5
+≥80, 0.18, Lognormal, Longer Delays, 10.1, 10.5, 7.4, 7.5

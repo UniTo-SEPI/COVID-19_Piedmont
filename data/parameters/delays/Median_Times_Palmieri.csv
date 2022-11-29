@@ -1,0 +1,13 @@
+Type,Age,Median_Time,IQR_Lower,IQR_Upper
+From symptoms onset to death, All, 11, 7, 16
+From symptoms onset to SARS-CoV-2 testing, All, 5, 3, 9 
+From symptoms onset to hospitalization, All, 5, 2, 7
+From hospitalization to death, All, 6, 3, 10
+From symptoms onset to death, <65, 16, 11, 22.5
+From symptoms onset to SARS-CoV-2 testing, <65, 6, 3, 10
+From symptoms onset to hospitalization, <65, 5, 3, 9
+From hospitalization to death, <65, 9, 5, 17
+From symptoms onset to death, ≥65, 10, 7, 22
+From symptoms onset to SARS-CoV-2 testing, ≥65, 5, 3, 8
+From symptoms onset to hospitalization, ≥65, 4, 2, 7
+From hospitalization to death, ≥65, 5, 3, 9

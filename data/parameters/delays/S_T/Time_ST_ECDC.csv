@@ -1,0 +1,3 @@
+Isolation_Type, Prior_Mean, Lower_Bound, Upper_Bound
+Hospital, 11.46, 0.01, 20
+Home, 6.75, 1, 20

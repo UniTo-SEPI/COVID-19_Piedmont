@@ -1,0 +1,4 @@
+Distribution, Type, Mean, 95%_CI_Lower, 95%_CI_Upper
+Normal, All, 6.49, 5.94, 7.10
+Normal, Survivor, 6.60, 4.23, 10.29
+Normal, Non-Survivor, 10.18, 9.65, 10.74

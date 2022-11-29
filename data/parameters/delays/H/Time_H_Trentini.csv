@@ -1,0 +1,5 @@
+Hospitalization_Type, Outcome, Median, IQR_Lower, IQR_Upper
+ICU, Survived, 38, 24, 55
+ICU, Non-Survived, 15, 9, 24
+Non-ICU, Survived, 11, 3, 23
+Non-ICU, Non-Survived, 6, 3, 10

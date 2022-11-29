@@ -1,0 +1,5 @@
+Distribution, Parameter1, Parameter1_95%CI_Lower, Parameter1_95%CI_Upper, Parameter2, Parameter2_95%CI_Lower, Parameter2_95%CI_Upper
+Lognormal, 1.621, 1.504, 1.755, 0.418, 0.271, 0.542
+Gamma, 5.807, 3.585, 13.865, 0.948, 0.368, 1.696
+Weibull, 2.453, 1.917, 4.171, 6.258, 5.355, 7.260
+Erlang, 6, 3, 11, 0.880, 0.484, 1.895

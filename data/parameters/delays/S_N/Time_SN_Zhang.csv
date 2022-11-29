@@ -1,0 +1,13 @@
+Period,Distribution,Mean,95%_CI_Lower,95%_CI_Upper,Parameter1,Parameter2,AIC
+All, Empirical, 7.4, 1.0, 18.0, , ,
+All, Gamma, 7.3, 1.4, 18.8, 2.72, 0.37, 27954.2
+All, Weibull, 7.5, 1.1, 17.6, 1.75, 8.29, 28054.8
+All, Lognormal, 7.5, 1.7, 21.9, 1.80, 0.68, 28447.6
+Dec 24 - Jan 27, Empirical, 8.9, 2.0, 19.8, , ,
+Dec 24 - Jan 27, Gamma, 8.8, 2.3, 19.2, 3.72, 0.42, 15552.1
+Dec 24 - Jan 27, Weibull, 8.9, 1.4, 18.7, 2.09, 10.05, 15585.2
+Dec 24 - Jan 27, Lognormal, 9.1, 2.4, 24.2, 2.04, 0.57, 15806.4 
+Jan 28 – Feb 17, Empirical, 5.4, 1.0, 12.0, , ,
+Jan 28 – Feb 17, Gamma, 5.3, 1.2, 13.1, 3.18, 0.59, 10038.7 
+Jan 28 – Feb 17, Weibull, 5.4, 0.9, 11.7, 1.95, 6.10, 10040.6 
+Jan 28 – Feb 17, Lognormal, 5.5, 1.2, 15.0, 1.52, 0.63, 10276.9 

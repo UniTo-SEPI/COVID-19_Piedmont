@@ -1,0 +1,3 @@
+Hospitalization_Type, Median, IQR_Lower, IQR_Upper
+ICU, 6, 3, 9
+Non-ICU, 5, 1, 9
