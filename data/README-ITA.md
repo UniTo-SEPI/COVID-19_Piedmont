@@ -1,7 +1,7 @@
 # Dati
 
-[![Language: English](https://img.shields.io/badge/Language-english-red.svg)](https://github.com/UniTo-SEPI/COVID-19_Data_Modelling/tree/main/data/README.md)
-[![Language: Italian](https://img.shields.io/badge/Language-italian-blue.svg)](https://github.com/UniTo-SEPI/COVID-19_Data_Modelling/tree/main/data/README-ITA.md) 
+[![Language: English](https://img.shields.io/badge/Language-English-red.svg)](https://github.com/UniTo-SEPI/COVID-19_Data_Modelling/tree/main/data/README.md)
+[![Language: Italian](https://img.shields.io/badge/Language-Italian-blue.svg)](https://github.com/UniTo-SEPI/COVID-19_Data_Modelling/tree/main/data/README-ITA.md) 
 
 ## Disclaimer 
 

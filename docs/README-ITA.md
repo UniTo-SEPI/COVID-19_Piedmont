@@ -1,4 +1,7 @@
-# COVID-19 Data Modeling per SEPI (29-03-2022)
+# Manuale di Documentazione
+
+[![Language: English](https://img.shields.io/badge/Language-English-red.svg)](https://github.com/UniTo-SEPI/COVID-19_Data_Modelling/blob/main/docs/README.md)
+[![Language: Italian](https://img.shields.io/badge/Language-Italian-blue.svg)](https://github.com/UniTo-SEPI/COVID-19_Data_Modelling/blob/main/docs/README-ITA.md) 
 
 ## 0. Età
 
@@ -11,7 +14,7 @@ Riconosciuta la complessità dei dati relativi ai casi sintomatici (molteplice d
 1. tenere conto della variabilità indotta da ritardi strutturali del fenomeno sottostante come il periodo di incubazione ([McAloon et al. (2020)](http://dx.doi.org/10.1136/bmjopen-2020-039652));
 2. sondare la variabilità indotta da ritardi contingenti dovuti all'eterogeneità dei dispositivi diagnostici (i.p. diverso limit of detection) utilizzati come il periodo di positività ([Larremore et al. (2020)](https://doi.org/10.1126/sciadv.abd5393), [Tom, Mina (2020)](https://doi.org/10.1093/cid/ciaa619), [Cevik et al. (2020)](https://doi.org/10.1016/S2666-5247(20)30172-5), [Mallet et al. (2020)](https://doi.org/10.1186/s12916-020-01810-8), [Cleary et al. (2021)](https://doi.org/10.1126/scitranslmed.abf1568), [Boum et al. (2021)](https://doi.org/10.1016/S1473-3099(21)00132-8), [Hellewell et al. (2021)](https://doi.org/10.1186/s12916-021-01982-x), [Kissler et al. (2021)](https://doi.org/10.1371/journal.pbio.3001333)); 
 3. quantificare l'incertezza indotta dalla scelta di un particolare intervallo o soglia;
-4. stimare con maggior accuratezza e robustezza l'incidenza di infezioni latenti nel periodo precedente alla conferma del primo caso positivo in modo da poter fissare le condizioni iniziali dei modelli compartimentali basati su equazioni differenziali stocastiche descritti più approfonditamente nel manuale di [Simulation Modeling]().
+4. stimare con maggior accuratezza e robustezza l'incidenza di infezioni latenti nel periodo precedente alla conferma del primo caso positivo in modo da poter fissare le condizioni iniziali dei modelli compartimentali.
 
 Abbiamo quindi definito i seguenti tre intervalli di plausibilità notevoli **complementari**:
 
@@ -19,7 +22,7 @@ Abbiamo quindi definito i seguenti tre intervalli di plausibilità notevoli **co
 - `[data_positività - 20, data_positività + 14]` ; 
 - `[data_positività - 10, data_positività + 14]` .
 
-Pertanto l'**algoritmo** che definisce univocamente l'**effettiva data di insorgenza sintomi** di un paziente dovrebbe operare come segue: 
+Pertanto l'**algoritmo** che definisce univocamente l'**effettiva data di insorgenza sintomi** di un paziente funziona come segue: 
 
 1. Impostare un intervallo di plausibilità;
 2. Considerare come effettiva data di insorgenza sintomi quella più prossima al limite inferiore dell'intervallo di plausibilità adottato in modo che ci sia un'unica data di insorgenza sintomi valida per ogni paziente.
@@ -42,7 +45,7 @@ In particolare:
 
 ### 2.1 Ricoveri pre-tempone positivo 
 
-Per ciò che concerne tutti i pazienti che possiedono `data_ammissione_x` (con `x = ordinaria`  o  `x = intensiva`) precedente alla `data_positività` si dovrà procedere impostando `data_positività = data_ammissione_x` .
+Per ciò che concerne tutti i pazienti che possiedono `data_ammissione_x` (con `x = ordinaria`  o  `x = intensiva`) precedente alla `data_positività` si procede impostando `data_positività = data_ammissione_x` .
 
 ### 2.2 Ricoveri post-fine percorso
 
@@ -69,12 +72,12 @@ Definiamo **quarantena** un generico periodo di isolamento imposto ad un qualunq
 
 Dalla lettura di tutte le [ordinanze, i comunicati](https://www.gazzettaufficiale.it/attiAssociati/1?areaNode=17) e [le circolari](https://www.salute.gov.it/portale/nuovocoronavirus/archivioNormativaNuovoCoronavirus.jsp?lingua=italiano&area=213&testo=&tipologia=CIRCOLARE&giorno=&mese=&anno=&btnCerca=cerca&iPageNo=6&cPageNo=6) emanati dal Ministero della Salute ed estratto tutti quelli rilevanti per informare la scelta degli estremi di tali intervalli (i.e. che presentassero il numero di giorni di isolamento imposti a casi sospetti o confermati):
 
-1. [Ordinanza del 21-02-2020 ](https://www.gazzettaufficiale.it/eli/id/2020/02/22/20A01220/sg) ;
-2. [Ordinanza del 28-03-2020](https://www.gazzettaufficiale.it/eli/id/2020/03/29/20A01921/sg) ;
-3. [Ordinanza del 23-12-2020](https://www.gazzettaufficiale.it/eli/id/2020/12/23/20A07212/sg) ;
-4. [Circolare del 28-02-2020](https://www.trovanorme.salute.gov.it/norme/renderNormsanPdf?anno=2020&codLeg=73458&parte=1 &serie=null) ; 
-5. [Circolare del 29-05-2020](https://www.trovanorme.salute.gov.it/norme/renderNormsanPdf?anno=2020&codLeg=74178&parte=1 &serie=null) ;
-6. [Circolare del 12-10-2020](https://www.trovanorme.salute.gov.it/norme/renderNormsanPdf?anno=2020&codLeg=76613&parte=1 &serie=null) 
+1. [Ordinanza del 21-02-2020 ](https://www.gazzettaufficiale.it/eli/id/2020/02/22/20A01220/sg);
+2. [Ordinanza del 28-03-2020](https://www.gazzettaufficiale.it/eli/id/2020/03/29/20A01921/sg);
+3. [Ordinanza del 23-12-2020](https://www.gazzettaufficiale.it/eli/id/2020/12/23/20A07212/sg);
+4. [Circolare del 28-02-2020](https://www.trovanorme.salute.gov.it/norme/renderNormsanPdf?anno=2020&codLeg=73458&parte=1&serie=null); 
+5. [Circolare del 29-05-2020](https://www.trovanorme.salute.gov.it/norme/renderNormsanPdf?anno=2020&codLeg=74178&parte=1&serie=null);
+6. [Circolare del 12-10-2020](https://www.trovanorme.salute.gov.it/norme/renderNormsanPdf?anno=2020&codLeg=76613&parte=1&serie=null).
 
 si evince che in Italia durante l'anno 2020 (periodo di interesse per cui sono disponibili i dati stratificati per età e stato clinico) sono stati applicate **tre differenti durate del periodo di isolamento o quarantena**:
 
@@ -85,11 +88,11 @@ si evince che in Italia durante l'anno 2020 (periodo di interesse per cui sono d
 - `T_quarantena = |data_fine_quarantena - data_inizio_quarantena| = 10 giorni` con test dall'ultima esposizione al caso confermato positivo per i contatti stretti di casi confermati positivi dal 12-10-2020;
 - `T_quarantena = |data_fine_quarantena - data_inizio_quarantena| = 14 giorni` senza test dall'ultima esposizione al caso confermato positivo per i contatti stretti di casi confermati positivi dal 12-10-2020. 
 
-In Piemonte è stato adottato **un algoritmo prescrittivo di quarantena ed isolamento** descritto in [Milani et al. (2021)](https://epiprev.it/5814) per tutto l'anno 2020 (periodo di interesse per cui sono disponibili i dati stratificati per età e stato clinico). 
+In Piemonte è stato adottato **un algoritmo prescrittivo di quarantena ed isolamento** documentato in [Milani et al. (2021)](https://epiprev.it/5814) per tutto l'anno 2020 (periodo di interesse per cui sono disponibili i dati stratificati per età e stato clinico). 
 
 ### 3.2 Algoritmo di identificazione date effettive di quarantena 
 
-Per ciò che concerne l'**effettiva data di fine di quarantena** di un paziente occorrerà operare come segue: 
+Per ciò che concerne l'**effettiva data di fine di quarantena** di un paziente si procede come segue: 
 
 1. SE il paziente possiede `data_fine_quarantena` ALLORA `data_fine_quarantena_ordinaria = data_fine_quarantena` ; 
 2. SE il paziente NON possiede `data_fine_quarantena` E possiede `data_guarigione` o `data_conclusione_percorso` (ASL, SISP) ALLORA `data_fine_quarantena_ordinaria = data_guarigione` o `data_fine_quarantena_ordinaria = data_conclusione_percorso` ;
@@ -211,13 +214,13 @@ che si verificano nelle **date notevoli**:
 
 Di seguito ci occupiamo di:
 
-1. descrivere l'**algoritmo** che genera le serie temporali stratificate per età e stato clinico relative alle sequenze presenti nel line-list database gestito dal CSI Piemonte; 
+1. descrivere l'**algoritmo** che genera le serie temporali stratificate per età e stato clinico relative alle sequenze presenti nel line-list database gestito dal [CSI Piemonte](https://www.csipiemonte.it/en/project/piedmont-region-covid-19-platform); 
 2. riportare un insieme comprensivo ma potenzialmente incompleto di **sequenze** da considerare (utile per effettuare dei check) .
 
 ### 5.1 Algoritmo 
 
-1. Ciascun paziente avrà una propria sequenza ordinata di eventi (ad esempio `(IQP,FQP,IQO,IS,P,G)`) che si sono verificati in una sequenza ordinata di date (in questo esempio`(data_IQP, data_FQP, data_IQO, data_IS, data_P, data_G)`). 
-2. Per ogni data (ad esempio `data_IQO=10/03/2020`) nella sequenza ordinata di eventi (ad esempio `(IQP,FQP,IQO,IS,P,G)`) si andrà ad aggiungere un'osservazione alla **riga corrispondente alla data** (qui `data=data_IQO`) e alla **colonna relativa all'evento per il percorso specifico** (qui colonna `iqp_fqp_IQO_is_p_g`: serie temporale stratificata per età e stato clinico dei casi sintomatici per data di inizio quarantena ordinaria della coorte con percorso `(IQP,FQP,IQO,IS,P,G)`). 
+1. Ciascun paziente ha una propria sequenza ordinata di eventi (ad esempio `(IQP,FQP,IQO,IS,P,G)`) che si sono verificati in una sequenza ordinata di date (in questo esempio`(data_IQP, data_FQP, data_IQO, data_IS, data_P, data_G)`). 
+2. Per ogni data (ad esempio `data_IQO=10/03/2020`) nella sequenza ordinata di eventi (ad esempio `(IQP,FQP,IQO,IS,P,G)`) si va ad aggiungere un'osservazione alla **riga corrispondente alla data** (qui `data=data_IQO`) e alla **colonna relativa all'evento per il percorso specifico** (qui colonna `iqp_fqp_IQO_is_p_g`: serie temporale stratificata per età e stato clinico dei casi sintomatici per data di inizio quarantena ordinaria della coorte con percorso `(IQP,FQP,IQO,IS,P,G)`). 
 
 Evitiamo di riportare anche le rappresentazioni dei datasets di esempio troncati, ovvero privi delle colonne relative a tutte le possibili permutazioni rilevanti, perché si tratterebbe di un semplice passaggio da 4 a 13 eventi notevoli rispetto a quello riportato nell'allegato precedente. 
 
@@ -496,9 +499,7 @@ Definiamo **tempi di transizione** gli intervalli temporali intercorsi tra event
 * `T_DR_G`: intervallo di tempo intercorso tra `dimissione_riabilitativa` e `guarigione` ; 
 * `T_DR_D`: intervallo di tempo intercorso tra `dimissione_riabilitativa` e `decesso` ; 
 
-Richiediamo le **distribuzioni empiriche di tempo di transizione notevoli con binning giornaliero** stratificate per età, stato clinico e temporalmente, con ampiezza dell'intervallo che sarà indicata con `T` (periodo minimo o risoluzione temporale).
-
-Il **dataset in output** dovrà essere costituito da più tabelle, ciascuna riportante la distribuzione empirica di un tempo di transizione specifico per una classe d'età, uno stato clinico e temporalmente, con ampiezza dell'intervallo che sarà indicata con `T`, con binning giornaliero. Per ogni tupla `(T_A_B, classe_età, stato_clinico)`, la procedura è la seguente:
+Il **dataset in output** sarà costituito da più tabelle, ciascuna riportante la distribuzione empirica di un tempo di transizione specifico per una classe d'età, uno stato clinico e temporalmente, con ampiezza dell'intervallo che sarà indicata con `T`, con binning giornaliero. Per ogni tupla `(T_A_B, classe_età, stato_clinico)`, la procedura è la seguente:
 
 1. Considerare una tupla `(T_A_B, classe_età, stato_clinico)`, porre il periodo di aggregazione temporale `T` a  `T = 0 giorni` ;
 2. Aumentare `T` di 1 giorno ;
@@ -559,14 +560,14 @@ Al fine di chiarire ulteriormente il funzionamento dell'**algoritmo** descritto 
 
 ### Obiettivi
 
-- Stimare le infezioni latenti nel periodo pre-sorveglianza necessarie ad inizializzare alcune variabili e parametri dei modelli di simulazione che dovranno poi essere calibrati sulle incidenza stratificate per età e sequenza estratti come descritto nelle sezioni precedenti. Attualmente questo viene fatto avendo implementato una custom loss per [Optim.jl](https://julianlsolvers.github.io/Optim.jl/stable/), ma abbiamo già esteso il frameweork modellistico al fine di tentare un'inferenza bayesiana congiunta parametri & condizioni iniziali;
+- Stimare le infezioni latenti nel periodo pre-sorveglianza necessarie ad inizializzare alcune variabili e parametri dei modelli di simulazione che dovranno poi essere calibrati sulle incidenza stratificate per età e sequenza estratti come descritto nelle sezioni precedenti;
 - Analisi degli eccessi di evento notevole (ammissioni, decessi, etc.) stratficato per causa anche volta a determinare eventuali casi COVID-19 mis-diagnosticati. 
 
 ### Sintesi 
 
 I codici che riportiamo qui di seguito andrebbero utilizzati per costruire un dataset analogo alla sezione [5. Sequenze](#5-Sequenze) stratificato per età e per aggregazione di codici di causa nel periodo 2015-2020. 
 
-Come si legge nella [sezione ministeriale sui ricoveri ospedalieri](http://www.salute.gov.it/portale/temi/p2_4.jsp?lingua=italiano&tema=Assistenza, ospedale e territorio&area=ricoveriOspedalieri): 
+Come si legge nella [sezione ministeriale sui ricoveri ospedalieri](http://www.salute.gov.it/portale/temi/p2_4.jsp?lingua=italiano&tema=Assistenza,ospedaleeterritorio&area=ricoveriOspedalieri): 
 
 * il sistema di codifica utilizzato per le SDO è l'**ICD-9**;
 * il sistema di codifica utilizzato per le SM è l'**ICD-10**.
@@ -579,7 +580,7 @@ La classificazione d'età è la medesima descritta nella sezione [0. Età](#0-Et
 
 ### Codici 
 
-Al fine di selezionare i codici ICD-10 da convertire mediante il nostro pacchetto [ICD_GEMs.jl](https://github.com/InPhyT/ICD_GEMs.jl) nei corrispondenti codici ICD-9 rilevanti abbiamo condotto una [rapid review](https://github.com/InPhyT/SEPI-SEREMI/tree/main/References) della letteratura con un'attenzione particolare rivolta alle analisi delle schede di morte (SM) registrate in Italia. Questa revisione supporta la scelta del set di codici assegnati a complicazioni e comorbosità associate a COVID-19 che riportaimo qui di seguito. 
+Al fine di selezionare i codici ICD-10 da convertire mediante il nostro pacchetto [ICD_GEMs.jl](https://github.com/JuliaHealth/ICD_GEMs.jl) nei corrispondenti codici ICD-9 rilevanti abbiamo condotto una [rapid review](https://github.com/InPhyT/SEPI-SEREMI/tree/main/References) della letteratura con un'attenzione particolare rivolta alle analisi delle schede di morte (SM) registrate in Italia. Questa revisione supporta la scelta del set di codici assegnati a complicazioni e comorbosità associate a COVID-19 che riportaimo qui di seguito. 
 
 #### Cause Concorrenti O Precipitanti O Antecedenti
 
