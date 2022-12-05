@@ -103,9 +103,9 @@ In generale definiamo:
 
 * `T_quarantena = 14 giorni` ;
 * `{data_inizio_quarantena_i}`: l'insieme delle `data_inizio_quarantena` di un paziente ; 
-* `{data_inizio_quarantena_i < data_positività}` l'insieme delle `data_inizio_quarantena` precedenti alla `data_positività` ;
-* `{data_positività, {data_inizio_quarantena_i}}` è l'insieme che contiene sia le `data_inizio_quarantena` sia la `data_positività` ;
-* `{selected_data_inizio_quarantena_i}` l'insieme delle `data_inizio_quarantena` di un paziente i cui elementi sono:
+* `{data_inizio_quarantena_i < data_positività}`: l'insieme delle `data_inizio_quarantena` precedenti alla `data_positività` ;
+* `{data_positività, {data_inizio_quarantena_i}}`: l'insieme che contiene sia le `data_inizio_quarantena` sia la `data_positività` ;
+* `{selected_data_inizio_quarantena_i}`: l'insieme delle `data_inizio_quarantena` di un paziente i cui elementi sono:
   * `selected_data_inizio_quarantena_1 = data_inizio_quarantena_1` ;
   * `selected_data_inizio_quarantena_2 = min({data_inizio_quarantena_i > data_inizio_quarantena_1 + T_quarantena })`;
   * `selected_data_inizio_quarantena_3 = min({data_inizio_quarantena_i > selected_data_inizio_quarantena_2 + T_quarantena })` ;
@@ -183,7 +183,7 @@ ALTRIMENTI SE presenta almeno una `data_ammissione_x`, si procede come segue:
 Definiamo **sequenza o percorso clinico** la successione ordinata degli **eventi notevoli**:
 
 * `IQP = inizio_quarantena_precauzionale`: inizio della quarantena precauzionale ;
-* `FQP = fine_quarantena_precauzionale`: inizio della quarantena precauzionale ;
+* `FQP = fine_quarantena_precauzionale`: fine della quarantena precauzionale ;
 * `IQO = inizio_quarantena_ordinaria `: inizio della quarantena ordinaria ;
 * `IS = inizio_sintomi `: insorgenza dei sintomi;
 * `P = positività `: conferma dell'esito positivo del tampone analizzato;
@@ -231,7 +231,6 @@ Riportiamo qui di seguito un insieme comprensivo (ma potenzialmente incompleto) 
 ##### Casi Asintomatici 
 
 * `(IQO,P,G) = (inizio_quarantena_ordinaria, positività, guarigione) `: percorso plausibile per casi asintomatici a cui non è mai stata imposta la quarantena precauzionale;
-
 * `(P,IQO,G) = (positività, inizio_quarantena_ordinaria, guarigione) `: percorso plausibile per casi asintomatici a cui non è mai stata imposta la quarantena precauzionale;
 * `(IQP,FQP,IQO,P,G) = (inizio_quarantena_precauzionale, fine_quarantena_precauzionale, inizio_quarantena_ordinaria, positività, guarigione) `: percorso plausibile per casi asintomatici a cui è stata imposta la quarantena precauzionale;
 * `(IQP,FQP,P,IQO,G) = (inizio_quarantena_precauzionale, fine_quarantena_precauzionale, positività, inizio_quarantena_ordinaria, guarigione) `: percorso plausibile per casi asintomatici a cui è stata imposta la quarantena precauzionale;
@@ -451,8 +450,6 @@ Dunque le variabili o colonne del dataset finale (di cui riporteremo solo una po
 *  `iqp_fqp_p_iqo_is_ao_do_ai_di_ar_DR_d`: serie temporale stratificata per età e stato clinico dei casi sintomatici per data di dimissione riabilitativa della coorte con percorso `(IQP,FQP,P,IQO,IS,AO,DO,AI,DI,AR,DR,D) `;
 *  `iqp_fqp_p_iqo_is_ao_do_ai_di_ar_dr_D`: serie temporale stratificata per età e stato clinico dei casi sintomatici per data di decesso della coorte con percorso `(IQP,FQP,P,IQO,IS,AO,DO,AI,DI,AR,DR,D) `;
 
-Sarebbe utile, al fine di minimizzare gli annerimenti, avere, oltre al dataset di sequenze sopra descritto, un dataset analogo ottenuto trascurando eventi notevoli riabilitativi.
-
 ## 6. Tempi di Transizione
 
 Definiamo **tempi di transizione** gli intervalli temporali intercorsi tra eventi notevoli: 
@@ -503,7 +500,7 @@ Il **dataset in output** sarà costituito da più tabelle, ciascuna riportante l
 
 1. Considerare una tupla `(T_A_B, classe_età, stato_clinico)`, porre il periodo di aggregazione temporale `T` a  `T = 0 giorni` ;
 2. Aumentare `T` di 1 giorno ;
-3. Calcolare le distribuzioni empiriche di tempi di transizione relative a ogni intervallo di ampiezza `T` in cui il vostro dataset viene suddiviso ;
+3. Calcolare le distribuzioni empiriche di tempi di transizione relative a ogni intervallo di ampiezza `T` in cui il dataset viene suddiviso ;
 4. Se non vi sono più NA dovuti alla privacy, salvare il dataset, passare alla prossima tupla e quindi tornare al punto 1. ;
 5. Se ancora vi sono NA dovuti alla privacy, salvare il dataset e tornare al punto 2. .
 
@@ -528,7 +525,7 @@ Al fine di chiarire ulteriormente il funzionamento dell'**algoritmo** descritto 
 |  13  |  72   |   SINTOMATICO   |     NA     |     NA     | 02-03-2020 | 02-03-2020 | 06-03-2020 |
 |  14  |  70   |   SINTOMATICO   |     NA     |     NA     | 01-03-2020 | 02-03-2020 | 03-03-2020 |
 
-##### 6.2 Dataset di Distribuzione Empirica di `T_IQO_P` per Casi Sintomatici di `70-79` Anni con `T=1` in OUTPUT (DA SALVARE come "Distribuzione_IQO_P_70-79_Sintomatici_1.csv")
+##### 6.2 Dataset di Distribuzione Empirica di `T_IQO_P` per Casi Sintomatici di `70-79` Anni con `T=1` in OUTPUT (SALVATE come "Distribuzione_IQO_P_70-79_Sintomatici_1.csv")
 
 | `data_inizio` | `data_fine` | `T`  | `T_IQO_P` | `frequenza_T_IQO_P` |
 | :-----------: | :---------: | :--: | :-------: | :-----------------: |
@@ -545,7 +542,7 @@ Al fine di chiarire ulteriormente il funzionamento dell'**algoritmo** descritto 
 |  02-03-2020   | 02-03-2020  |  1   |     4     |         NA          |
 |  02-03-2020   | 02-03-2020  |  1   |     5     |          0          |
 
-##### 6.3 Dataset di Distribuzione Empirica di `T_IQO_P` per Casi Confermati di `70-79` Anni sintomatici con `T=2` in OUTPUT (DA SALVARE come "Distribuzione_IQO_P_70-79_Sintomatici_2.csv")
+##### 6.3 Dataset di Distribuzione Empirica di `T_IQO_P` per Casi Confermati di `70-79` Anni sintomatici con `T=2` in OUTPUT (SALVATE come "Distribuzione_IQO_P_70-79_Sintomatici_2.csv")
 
 | `data_inizio` | `data_fine` | `T`  | `T_IQO_P` | `frequenza_T_IQO_P` |
 | :-----------: | :---------: | :--: | :-------: | :-----------------: |
@@ -584,7 +581,7 @@ Al fine di selezionare i codici ICD-10 da convertire mediante il nostro pacchett
 
 #### Cause Concorrenti O Precipitanti O Antecedenti
 
-| ICD-10 Codes                                                 | Description                                               | References                                                   |
+| Codici ICD-10                                                 | Descrizione                                               | Referenze                                                   |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
 | U071, U072                                                   | COVID-19                                                  | [Grippo et al. (2020)](https://doi.org/10.3390/jcm9113459) ; [Fedeli et al. (2021)](https://doi.org/10.26355/eurrev_202105_25844) ; [Grande et al. (2021)](https://doi.org/10.3390/covid1040060) |
 | U071, U072, J09-J189, J80, J849, J96x                        | COVID-19 + Flu, pneumonia + selected respiratory diseases | [Fedeli et al. (2021)](https://doi.org/10.26355/eurrev_202105_25844) |
@@ -636,7 +633,7 @@ Al fine di selezionare i codici ICD-10 da convertire mediante il nostro pacchett
 
 #### Complicazioni 
 
-| ICD-10 Codes                     | Description                                                  | References                                                   |
+| Codici ICD-10                     | Descrizione                                                  | Referenze                                                   |
 | -------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | A00-A09                          | Intestinal infections                                        | [Grippo et al. (2020)](https://doi.org/10.3390/jcm9113459)   |
 | A00–A09, K50–K67                 | Intestinal complications                                     | [Grippo et al. (2021)](https://doi.org/10.3389/fmed.2021.645543) |
