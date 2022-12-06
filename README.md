@@ -1,21 +1,22 @@
-# COVID-19 Data Modelling and Management in Piedmont
+# Piedmont COVID-19 Data Modelling & Management
 
 [![Language: Italian](https://img.shields.io/badge/Language-Italian-blue.svg)](https://github.com/UniTo-SEPI/COVID-19_Piedmont/blob/main/README-ITA.md) 
 [![Documentation: Manual](https://img.shields.io/badge/Docs-Manuale-lightblue.svg)](https://github.com/UniTo-SEPI/COVID-19_Piedmont/blob/main/docs/README.md)
 [![Language: English](https://img.shields.io/badge/Language-English-red.svg)](https://github.com/UniTo-SEPI/COVID-19_Piedmont/blob/main/README.md)
 [![Documentation: Manual](https://img.shields.io/badge/Docs-Manual-orange.svg)](https://github.com/UniTo-SEPI/COVID-19_Piedmont/blob/main/docs/README.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/UniTo-SEPI/COVID-19_Piedmont/blob/main/LICENSE)
-[![DOI: Zenodo](https://zenodo.org/badge/XXXXXXXXX.svg)](https://zenodo.org/badge/latestdoi/XXXXXXXXX)
 
 <img align="right" width="230" height="225" src="https://github.com/UniTo-SEPI/COVID-19_Piedmont/blob/main/images/logo/logo.png?raw=true">
 
-## Disclaimer 
+This repository contains the [code](https://github.com/UniTo-SEPI/COVID-19_Piedmont/tree/main/src), [documentation manual](https://github.com/UniTo-SEPI/COVID-19_Piedmont/tree/main/docs) and [data visualisations](https://github.com/UniTo-SEPI/COVID-19_Piedmont/tree/main/images/plots) for the design and operation of the Piedmont COVID-19 surveillance data modelling and management pipeline developed in collaboration with the Piedmont Epidemiological Service ([SEPI](https://www.epi.piemonte.it/)).
 
 For privacy purposes all the data in this repository are either [`fake`](https://github.com/UniTo-SEPI/COVID-19_Piedmont/tree/main/data/fake-input) (i.e. invented) or [`synthetic`](https://github.com/UniTo-SEPI/COVID-19_Piedmont/tree/main/data/synthetic-input) (i.e. simulated) in order to be structurally equivalent to the original individual-level data to accurately showcase the functionalities of the data modelling and management pipeline. 
 
+The only reference to the real data can be found in the plots located in the [`images/real-output`](https://github.com/UniTo-SEPI/COVID-19_Piedmont/tree/main/images/plots/real-output) folder. 
+
 ## How to Cite
 
-If you use this software in your work, please cite this repository using the metadata in [`CITATION.bib`](https://github.com/UniTo-SEPI/COVID-19_Piedmont/blob/main/CITATION.bib).
+If you use these contents in your work, please cite this repository using the metadata in [`CITATION.bib`](https://github.com/UniTo-SEPI/COVID-19_Piedmont/blob/main/CITATION.bib).
 
 ## References 
 
@@ -28,7 +29,8 @@ If you use this software in your work, please cite this repository using the met
 
 ### Software 
 
-Monticone, Moroni (2022) [ICD_GEMs.jl: A Julia Package to Translate Between ICD-9 and ICD-10 Codes](https://doi.org/10.5281/zenodo.6564434). *Zenodo*
+1. Monticone, Moroni (2022) [ICD_GEMs.jl: A Julia Package to Translate Between ICD-9 and ICD-10 Codes](https://doi.org/10.5281/zenodo.6564434). *Zenodo*
+2. Monticone, Moroni (2022) [UnrollingAverages.jl: A Julia Package to Deconvolve Time Series Data.](https://doi.org/10.5281/zenodo.5725301). *Zenodo*
 
 ### Papers 
 

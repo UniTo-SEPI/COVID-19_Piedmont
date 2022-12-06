@@ -1,7 +1,7 @@
-# Dati
+# Immagini
 
-[![Language: English](https://img.shields.io/badge/Language-English-red.svg)](https://github.com/UniTo-SEPI/COVID-19_Piedmont/tree/main/data/README.md)
-[![Language: Italian](https://img.shields.io/badge/Language-Italian-blue.svg)](https://github.com/UniTo-SEPI/COVID-19_Piedmont/tree/main/data/README-ITA.md) 
+[![Language: English](https://img.shields.io/badge/Language-English-red.svg)](https://github.com/UniTo-SEPI/COVID-19_Piedmont/tree/main/images/README.md)
+[![Language: Italian](https://img.shields.io/badge/Language-Italian-blue.svg)](https://github.com/UniTo-SEPI/COVID-19_Piedmont/tree/main/images/README-ITA.md) 
 
 ## Disclaimer 
 
