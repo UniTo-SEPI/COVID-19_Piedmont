@@ -42,7 +42,7 @@ include("plotting.jl");
 ####### INSTRUCTIONS ########
 #############################
 
-const absolute_path_to_repository = dirname(@__DIR__) # "/path/to/COVID-19_Data_Modelling"
+const absolute_path_to_repository = dirname(@__DIR__) # "/path/to/COVID-19_Piedmont"
 
 # Path to folder that contains:
 # - join_all.sas7bdat

@@ -1,19 +1,21 @@
-# Gestione e Modellizzazione Dati di Sorveglianza COVID-19 in Piemonte
+# Gestione e Modellizzazione Dati COVID-19 in Piemonte
 
-[![Language: English](https://img.shields.io/badge/Language-English-red.svg)](https://github.com/UniTo-SEPI/COVID-19_Data_Modelling/blob/main/README.md)
-[![Language: Italian](https://img.shields.io/badge/Language-Italian-blue.svg)](https://github.com/UniTo-SEPI/COVID-19_Data_Modelling/blob/main/README-ITA.md) 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/UniTo-SEPI/COVID-19_Data_Modelling/blob/main/LICENSE)
+[![Language: English](https://img.shields.io/badge/Language-English-red.svg)](https://github.com/UniTo-SEPI/COVID-19_Piedmont/blob/main/README.md)
+[![Documentation: Manual](https://img.shields.io/badge/Docs-Manual-orange.svg)](https://github.com/UniTo-SEPI/COVID-19_Piedmont/blob/main/docs/README.md)
+[![Language: Italian](https://img.shields.io/badge/Language-Italian-blue.svg)](https://github.com/UniTo-SEPI/COVID-19_Piedmont/blob/main/README-ITA.md) 
+[![Documentation: Manual](https://img.shields.io/badge/Docs-Manuale-lightblue.svg)](https://github.com/UniTo-SEPI/COVID-19_Piedmont/blob/main/docs/README.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/UniTo-SEPI/COVID-19_Piedmont/blob/main/LICENSE)
 [![DOI: Zenodo](https://zenodo.org/badge/XXXXXXXXX.svg)](https://zenodo.org/badge/latestdoi/XXXXXXXXX)
 
-<img align="right" width="215" height="215" src="https://github.com/UniTo-SEPI/COVID-19_Data_Modelling/blob/main/images/logo/logo.png?raw=true">
+<img align="right" width="215" height="215" src="https://github.com/UniTo-SEPI/COVID-19_Piedmont/blob/main/images/logo/logo.png?raw=true">
 
 ## Disclaimer 
 
-Per motivi di privacy tutti i dati contenuti in questo repository sono o [`fake`](https://github.com/UniTo-SEPI/COVID-19_Data_Modelling/tree/main/data/fake-input) (i.e. inventati) or [`synthetic`](https://github.com/UniTo-SEPI/COVID-19_Data_Modelling/tree/main/data/synthetic-input) (i.e. simulati) in modo da essere strutturalmente equivalenti ai dati individuali originali per riprodurre accuratemente il funzionamento della pipeline di modellizzazione dati. 
+Per motivi di privacy tutti i dati contenuti in questo repository sono o [`fake`](https://github.com/UniTo-SEPI/COVID-19_Piedmont/tree/main/data/fake-input) (i.e. inventati) or [`synthetic`](https://github.com/UniTo-SEPI/COVID-19_Piedmont/tree/main/data/synthetic-input) (i.e. simulati) in modo da essere strutturalmente equivalenti ai dati individuali originali per riprodurre accuratemente il funzionamento della pipeline di modellizzazione dati. 
 
 ## Come Citare
 
-Se usate questo software nel vostro lavoro siete pregati di citare questo repository usando i metadati contenuti nel file [`CITATION.bib`](https://github.com/UniTo-SEPI/COVID-19_Data_Modelling/blob/main/CITATION.bib).
+Se usate questo software nel vostro lavoro siete pregati di citare questo repository usando i metadati contenuti nel file [`CITATION.bib`](https://github.com/UniTo-SEPI/COVID-19_Piedmont/blob/main/CITATION.bib).
 
 ## Referenze 
 

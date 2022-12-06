@@ -218,7 +218,7 @@ version = "0.25.79"
 
 [[deps.DistributionsUtils]]
 deps = ["Distributions", "KernelDensity", "Optim", "Plots", "QuadGK", "Revise", "Roots"]
-path = "/Users/pietro/GitHub/COVID-19_Data_Modelling/src/DistributionsUtils.jl"
+path = "/Users/pietro/GitHub/COVID-19_Piedmont/src/DistributionsUtils.jl"
 uuid = "63e7d752-149e-4e50-987f-fd271309acd0"
 version = "0.1.0"
 
@@ -397,7 +397,7 @@ version = "0.3.11"
 
 [[deps.ICD_GEMs]]
 deps = ["Combinatorics", "DataFrames", "DataStructures", "ProgressMeter"]
-path = "/Users/pietro/GitHub/COVID-19_Data_Modelling/src/ICD_GEMs.jl"
+path = "/Users/pietro/GitHub/COVID-19_Piedmont/src/ICD_GEMs.jl"
 uuid = "92c81d88-7879-4d5d-8f68-e59e817e5f0d"
 version = "0.1.0"
 

@@ -25,7 +25,7 @@ using Base.Threads                      # Multithreading
 
 include("utilities.jl");
 
-const absolute_path_to_repository = dirname(@__DIR__) # "/path/to/COVID-19_Data_Modelling"
+const absolute_path_to_repository = dirname(@__DIR__) # "/path/to/COVID-19_Piedmont"
 const absolute_path_to_input_data = joinpath(absolute_path_to_repository, "data/fake-input")
 
 # Define paths to .sas7bdat files
