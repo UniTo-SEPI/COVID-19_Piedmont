@@ -1,7 +1,7 @@
 # Documentation Manual
 
-[![Language: Italian](https://img.shields.io/badge/Language-Italian-blue.svg)](https://github.com/UniTo-SEPI/COVID-19_Data_Modelling/blob/main/docs/README-ITA.md) 
-[![Language: English](https://img.shields.io/badge/Language-English-red.svg)](https://github.com/UniTo-SEPI/COVID-19_Data_Modelling/blob/main/docs/README.md)
+[![Language: Italian](https://img.shields.io/badge/Language-Italian-blue.svg)](https://github.com/UniTo-SEPI/COVID-19_Piedmont/blob/main/docs/README-ITA.md) 
+[![Language: English](https://img.shields.io/badge/Language-English-red.svg)](https://github.com/UniTo-SEPI/COVID-19_Piedmont/blob/main/docs/README.md)
 
 ## 0. Age
 
@@ -566,7 +566,7 @@ The age classification is the same as described above in section [0. Age](#0-Age
 
 ### Codes 
 
-In order to select ICD-10 codes to be converted via our package [ICD_GEMs.jl](https://github.com/JuliaHealth/ICD_GEMs.jl) into the corresponding relevant ICD-9 codes, we conducted a [rapid review](https://github.com/UniTo-SEPI/COVID-19_Data_Modelling/tree/main/docs/references) of the literature with a focus on the analysis of death certificates recorded in Italy. This review supports the choice of the set of codes assigned to complications and comorbidities associated with COVID-19 that we report below. 
+In order to select ICD-10 codes to be converted via our package [ICD_GEMs.jl](https://github.com/JuliaHealth/ICD_GEMs.jl) into the corresponding relevant ICD-9 codes, we conducted a [rapid review](https://github.com/UniTo-SEPI/COVID-19_Piedmont/tree/main/docs/references) of the literature with a focus on the analysis of death certificates recorded in Italy. This review supports the choice of the set of codes assigned to complications and comorbidities associated with COVID-19 that we report below. 
 
 #### Concomitant OR Precipitating OR Antecedents 
 
