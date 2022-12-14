@@ -1,7 +1,7 @@
 # Piedmont COVID-19 Data Modelling & Management
 
 [![Language: Italian](https://img.shields.io/badge/Language-Italian-blue.svg)](https://github.com/UniTo-SEPI/COVID-19_Piedmont/blob/main/README-ITA.md) 
-[![Documentation: Manual](https://img.shields.io/badge/Docs-Manuale-lightblue.svg)](https://github.com/UniTo-SEPI/COVID-19_Piedmont/blob/main/docs/README.md)
+[![Documentation: Manuale](https://img.shields.io/badge/Docs-Manuale-lightblue.svg)](https://github.com/UniTo-SEPI/COVID-19_Piedmont/blob/main/docs/README-ITA.md)
 [![Language: English](https://img.shields.io/badge/Language-English-red.svg)](https://github.com/UniTo-SEPI/COVID-19_Piedmont/blob/main/README.md)
 [![Documentation: Manual](https://img.shields.io/badge/Docs-Manual-orange.svg)](https://github.com/UniTo-SEPI/COVID-19_Piedmont/blob/main/docs/README.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/UniTo-SEPI/COVID-19_Piedmont/blob/main/LICENSE)
