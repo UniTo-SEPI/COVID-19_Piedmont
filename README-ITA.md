@@ -14,6 +14,10 @@ Per motivi di privacy tutti i dati contenuti in questo repository sono o [`fake`
 
 L'unica referenza ai dati reali si può trovare nei grafici presenti nella cartella [`images/real-output`](https://github.com/UniTo-SEPI/COVID-19_Piedmont/tree/main/images/plots/real-output).
 
+## Come Accedere 
+
+Se voleste accedere ai dati reali di sorveglianza COVID-19 in Piemonte che coprono l'intero anno 2020 per il vostro progetto di ricerca (i.e. sequenze, incidenze e distribuzioni empiriche di temi di transizione visualizzati [qui](https://github.com/UniTo-SEPI/COVID-19_Piedmont/tree/main/images/plots/real-output)), non esitate a contattarci aprendo una [discussion](https://github.com/UniTo-SEPI/COVID-19_Piedmont/discussions) o inviandoci una [email](inphyt@gmail.com). 
+
 ## Come Citare
 
 Se usate questi contenuti nel vostro lavoro siete pregati di citare questo repository usando i metadati contenuti nel file [`CITATION.bib`](https://github.com/UniTo-SEPI/COVID-19_Piedmont/blob/main/CITATION.bib).
