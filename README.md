@@ -16,7 +16,7 @@ The only reference to the real data can be found in the plots located in the [`i
 
 ## How to Access
 
-If you would like to access the real Piedmont COVID-19 surveillance data covering the year 2020 for your research project (i.e. sequences, incidences and empirical time delay distributions visualised [here](https://github.com/UniTo-SEPI/COVID-19_Piedmont/tree/main/images/plots/real-output)), please feel free to contact us by opening a [discussion](https://github.com/UniTo-SEPI/COVID-19_Piedmont/discussions) or sending us an [email](inphyt@gmail.com). 
+If you would like to access the real Piedmont COVID-19 surveillance data covering the year 2020 for your research project (i.e. sequences, incidences and empirical time delay distributions visualised [here](https://github.com/UniTo-SEPI/COVID-19_Piedmont/tree/main/images/plots/real-output)), please feel free to contact us by sending us an [email](inphyt@gmail.com). 
 
 ## How to Cite
 

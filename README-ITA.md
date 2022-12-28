@@ -16,7 +16,7 @@ L'unica referenza ai dati reali si può trovare nei grafici presenti nella carte
 
 ## Come Accedere 
 
-Se voleste accedere ai dati reali di sorveglianza COVID-19 in Piemonte che coprono l'intero anno 2020 per il vostro progetto di ricerca (i.e. sequenze, incidenze e distribuzioni empiriche di temi di transizione visualizzati [qui](https://github.com/UniTo-SEPI/COVID-19_Piedmont/tree/main/images/plots/real-output)), non esitate a contattarci aprendo una [discussion](https://github.com/UniTo-SEPI/COVID-19_Piedmont/discussions) o inviandoci una [email](inphyt@gmail.com). 
+Se voleste accedere ai dati reali di sorveglianza COVID-19 in Piemonte che coprono l'intero anno 2020 per il vostro progetto di ricerca (i.e. sequenze, incidenze e distribuzioni empiriche di temi di transizione visualizzati [qui](https://github.com/UniTo-SEPI/COVID-19_Piedmont/tree/main/images/plots/real-output)), non esitate a contattarci inviandoci una [email](inphyt@gmail.com). 
 
 ## Come Citare
 
