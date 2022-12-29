@@ -106,13 +106,13 @@ function get_delays(line_list::DataFrame; Ts::Tuple{Vararg{Int64}}, date_start::
     distributions_parameters_formula = Dict(Gamma            => OrderedDict( "α" => obs -> get_α_gamma(obs) ,                              "θ" => obs -> get_θ_gamma(obs)    ),
                                             LogNormal        => OrderedDict( "μ" => obs -> max(log(median(obs)),eps()),                        "σ" => obs -> get_σ_lognormal(obs)  ),
                                             NegativeBinomial => OrderedDict( "r" => obs -> get_r_negativebinomial(obs),                    "p" => obs -> get_p_negativebinomial(obs)                ),
-                                            Weibull          => OrderedDict( "α" => obs -> 1,                                              "θ" => obs -> 1  ) # Default values since momentsd are not invertible w.r.t. parameters
+                                            Weibull          => OrderedDict( "α" => obs -> 1,                                              "θ" => obs -> 1  ) # Default values since moments are not invertible w.r.t. parameters
                                             ) 
 
     # Calculate overall time period
     period = date_end - date_start
     #OrderedDict{String, Vector{Any}}()
-    # Loop for T from 1 to a maximum value given by the user. A maximum value is needed since the privacy policy could be insourmantable for some delays with low frequencies
+    # Loop for T from 1 to a maximum value given by the user. A maximum value is needed since the privacy policy could be insurmountable for some delays with low frequencies
     for T in Ts # 1:max_T
         # Compute date_inizio and date_fine
         date_inizio = Date[]

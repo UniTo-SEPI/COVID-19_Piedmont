@@ -37,7 +37,6 @@ include("./Code/Julia/sequences.jl");
 include("./Code/Julia/time_delays.jl");
 include("./Code/Julia/plotting.jl"); =#
 
-
 include("utilities.jl");
 include("raw_line_list.jl");
 include("sdo_sm.jl")
@@ -101,7 +100,6 @@ for (run_name, with_riabilitativo, with_inizio_sintomi) in [("riabilitativo_is",
 
     const save = true
     const skip_sdo_pre_processing = false
-
 
     #############################
     ###### PRE-PROCESSING #######
@@ -234,8 +232,6 @@ for (run_name, with_riabilitativo, with_inizio_sintomi) in [("riabilitativo_is",
                                     "Symptoms and signs involving the respiratory system" => execute_applied_mapping(I10_I9_GEMs_dict, ["R04-R09"], "all"),
                                     "Systemic inflammatory response syndrome (SIRS)" => execute_applied_mapping(I10_I9_GEMs_dict, ["R65"], "all")) =#
 
-
-
     #ICD-10 -> ICD-9 transaltions of Orsi 2021 codes
     const ICD_9_CM_translations_orsi_and_all_respiratory = Dict(
                                     # Antencedents
@@ -345,8 +341,6 @@ for (run_name, with_riabilitativo, with_inizio_sintomi) in [("riabilitativo_is",
     # Define aggregations
     const ICD_9_CM_aggregations = Dict("aggregations" => ICD_9_CM_translations_orsi, "n_digits" => nothing)
 
-
-
     # Process `join_all_df`, to give it proper format and column names.
     # The function checks that each line of every datasets with different plausibility intervals (pi) has either a data_G XOR a data_D to ensure consistency
     const join_all_processed_df_pi_30, join_all_processed_df_pi_20, join_all_processed_df_pi_10 = process_join_all(join_all_df, events_dates_names; MVP = MVP, is_MVP = is_MVP)
@@ -368,7 +362,6 @@ for (run_name, with_riabilitativo, with_inizio_sintomi) in [("riabilitativo_is",
         ## trasf_trasposti
         CSV.write(joinpath(absolute_path_to_intermediate_output, run_name, "1-pre_processing/COVID-19/trasf_trasposti_processed.csv"), trasf_trasposti_processed_df)
     end
-
 
     # SDO
     ## If sdo_skip_pre_processing, attempt to load sdo-related pre-processing data from intermediate_output/sdo_skip_pre_processing, else compute such datasets
@@ -517,7 +510,6 @@ for (run_name, with_riabilitativo, with_inizio_sintomi) in [("riabilitativo_is",
         ### Aggregated
         save_julia_variable(data_quality_ricoveri_SDO, joinpath(absolute_path_to_output, run_name, "3-hospitalization_period/SDO", "data_quality"), "data_quality_ricoveri_SDO" )
     end
-
 
     #############################
     ######## QUARANTENE #########
@@ -778,8 +770,6 @@ for (run_name, with_riabilitativo, with_inizio_sintomi) in [("riabilitativo_is",
     #     save_julia_variable(data_quality_incidences_SDO, joinpath(absolute_path_to_output, run_name, "incidences/SDO", "data_quality"), "data_quality_incidences_SDO")
     # end
 
-
-
     # Get sequences
     ## Uncersored sequences
     ### COVID-19 data
@@ -838,7 +828,6 @@ for (run_name, with_riabilitativo, with_inizio_sintomi) in [("riabilitativo_is",
         push!(data_quality_incidences_SDO, ICD_9_CM => data_quality_code_specific)
     end
 
-
     if save
         # Save sequences
         ## COVID-19 sequences
@@ -870,8 +859,6 @@ for (run_name, with_riabilitativo, with_inizio_sintomi) in [("riabilitativo_is",
         ## SDO incidences data quality
         save_julia_variable(data_quality_incidences_SDO, joinpath(absolute_path_to_output, run_name, "incidences/SDO", "data_quality"), "data_quality_incidences_SDO")
     end
-
-
 
     #############################
     ######## TIME DELAYS ########
@@ -933,18 +920,13 @@ for (run_name, with_riabilitativo, with_inizio_sintomi) in [("riabilitativo_is",
 
     const rich_raw_line_list_pi_30_plots =  plot_multiple_samples_raw_line_list(rich_raw_line_list_pi_30, n_lines, "Raw COVID-19 individual-level surveillance data in Piedmont (PI = 30)", :scatter) 
 
-
-
     const rich_raw_line_list_pi_20= raw_line_list_pi_20[.!is_MVP.(raw_line_list_pi_20.data_IS) .& .!is_MVP.(raw_line_list_pi_20.date_IQ) .& .!is_MVP.(raw_line_list_pi_20.date_FQ) .& .!is_MVP.(raw_line_list_pi_20.ricoveri) .& (.!is_MVP.(raw_line_list_pi_20.data_G) .| .!is_MVP.(raw_line_list_pi_20.data_D)  ) ,  :]
 
     const rich_raw_line_list_pi_20_plots =  plot_multiple_samples_raw_line_list(rich_raw_line_list_pi_20, n_lines, "Raw COVID-19 individual-level surveillance data in Piedmont (PI = 20)", :scatter) 
 
-
-
     const rich_raw_line_list_pi_10= raw_line_list_pi_10[.!is_MVP.(raw_line_list_pi_10.data_IS) .& .!is_MVP.(raw_line_list_pi_10.date_IQ) .& .!is_MVP.(raw_line_list_pi_10.date_FQ) .& .!is_MVP.(raw_line_list_pi_10.ricoveri) .& (.!is_MVP.(raw_line_list_pi_10.data_G) .| .!is_MVP.(raw_line_list_pi_10.data_D)  ) ,  :]
 
     const rich_raw_line_list_pi_10_plots =  plot_multiple_samples_raw_line_list(rich_raw_line_list_pi_10, n_lines, "Raw COVID-19 individual-level surveillance data in Piedmont (PI = 10)", :scatter) 
-
 
     for (i, plt) in enumerate(rich_raw_line_list_pi_30_plots)
         savefig(plt, joinpath(absolute_path_to_output_plots, run_name, "1-raw_line_list/COVID-19/raw_line_list_pi_30_plot_$(i).png"))
@@ -957,8 +939,6 @@ for (run_name, with_riabilitativo, with_inizio_sintomi) in [("riabilitativo_is",
     for (i, plt) in enumerate(rich_raw_line_list_pi_10_plots)
         savefig(plt, joinpath(absolute_path_to_output_plots, run_name, "1-raw_line_list/COVID-19/raw_line_list_pi_10_plot_$(i).png"))
     end
-
-
 
     ## Plot processed line-list data
     const date_IQP = line_list_ricoveri_quarantene_fp_is_pi_30.data_IQP
@@ -1104,7 +1084,6 @@ for (run_name, with_riabilitativo, with_inizio_sintomi) in [("riabilitativo_is",
             savefig(code_event_specific_incidences_plot, joinpath(absolute_path_to_output_plots, run_name, "incidences/SDO",ICD9_code*"_"*event))
         end
     end
-
 
     ## Plot time delays
     #include("./Code/Julia/plotting.jl");

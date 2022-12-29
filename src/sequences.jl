@@ -245,7 +245,7 @@ function get_sequences(line_list_ricoveri_quarantene_fp_is_lim::DataFrame; lower
                     if !is_MVP(line[event]) && (line[event] in sequence_df.data)
                         date_index = findfirst(x-> x == line[event], sequence_df.data)
                         @eval $sequence_df.$event_sequence[$date_index]  += 1
-                    # Else if a date does not fit into the dataset, error (it should not happenbeacause of `delete_lines_exceeding_date`)
+                    # Else if a date does not fit into the dataset, error (it should not happen because of `delete_lines_exceeding_date`)
                     elseif !is_MVP(line[event]) && !(line[event] in sequence_df.data)
                         error("missing date ", line[event])
                     end

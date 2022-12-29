@@ -44,7 +44,7 @@ const ICD_9_CM_translations = Dict(
                                     "External causes" => execute_applied_mapping(I10_I9_GEMs_dict, ["S00-S99", "T00-T98", "V01-V99", "W00-W99", "X00-X99", "Y00-Y98"], "all")
     )
 
-    # #ICD-10 -> ICD-9 transaltions of Orsi 2021 codes
+    # #ICD-10 -> ICD-9 translations of Orsi 2021 codes
     # const ICD_9_CM_translations_orsi = Dict(
     #                                 # Antencedents
     #                                 "Neoplasms"                          => execute_applied_mapping(I10_I9_GEMs_dict, ["C00-C99", "D00-D48"], "all"),
@@ -78,7 +78,7 @@ const ICD_9_CM_translations = Dict(
 
 
 
-    # #ICD-10 -> ICD-9 transaltions of Orsi 2021 codes
+    # #ICD-10 -> ICD-9 translations of Orsi 2021 codes
     # const ICD_9_CM_translations_orsi_and_all_respiratory = Dict(
     #                                 # Antencedents
     #                                 "Neoplasms"                          => execute_applied_mapping(I10_I9_GEMs_dict, ["C00-C99", "D00-D48"], "all"),

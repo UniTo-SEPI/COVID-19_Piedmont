@@ -565,10 +565,6 @@ for (run_name, with_riabilitativo, with_inizio_sintomi, with_quarantena_precauzi
         ICD_9_CM_actual = collect(keys(ICD9CM_processedTrasfTraspostiOne_dct))
     end
 
-    
-
-
-
     # Output line-lists by outer-joining on `ID` columns.
     ## uw = upper whisker
     ## COVID-19 data
@@ -587,8 +583,6 @@ for (run_name, with_riabilitativo, with_inizio_sintomi, with_quarantena_precauzi
     trasf_trasposti_processed_df     = nothing
     println("GC")
     GC.gc()
-
-
 
     ## SDO data
     ## We save upper and lower whiskers (although they have no meaning for SDOs as we will disregard imputed qurantines before 2020) since later functions require them as arguments.
@@ -636,7 +630,6 @@ for (run_name, with_riabilitativo, with_inizio_sintomi, with_quarantena_precauzi
             CSV.write(joinpath(absolute_path_to_intermediate_output, "2-raw_line_list/SDO/raw_line_list_SDO_$ICD_9_CM.csv"), raw_line_list)
         end =#
     end
-
 
     #############################
     ######### RICOVERI ##########
@@ -697,7 +690,6 @@ for (run_name, with_riabilitativo, with_inizio_sintomi, with_quarantena_precauzi
     raw_line_lists_SDO = nothing
     println("GC")
     GC.gc()
-
 
     #############################
     ######## QUARANTENE #########
@@ -1001,7 +993,6 @@ for (run_name, with_riabilitativo, with_inizio_sintomi, with_quarantena_precauzi
     println("GC")
     GC.gc()
 
-
     if save
         # Save sequences
         ## COVID-19 sequences
@@ -1047,8 +1038,6 @@ for (run_name, with_riabilitativo, with_inizio_sintomi, with_quarantena_precauzi
     println("GC")
     GC.gc()
 
-
-
     #############################
     ######## TIME DELAYS ########
     #############################
@@ -1077,8 +1066,6 @@ for (run_name, with_riabilitativo, with_inizio_sintomi, with_quarantena_precauzi
 
     println("GC")
     GC.gc()
-
-
 
     # Since we are only interested in frequencies, we don't need to get the censored version of the empirical distributions 
     # delays_censored_pi_30 = get_delays(line_list_ricoveri_quarantene_fp_is_lim_pi_30; max_T = max_T, privacy_policy = true, distributions_types = (), get_frequencies = false, MVP = MVP, is_MVP = is_MVP)
@@ -1116,7 +1103,6 @@ for (run_name, with_riabilitativo, with_inizio_sintomi, with_quarantena_precauzi
     ##### DATA VISUALIZATION ####
     #############################
 
-
     # Plot raw and processed line-list data
     n_lines = 30
     scatter_size = (1000, 900)
@@ -1129,20 +1115,16 @@ for (run_name, with_riabilitativo, with_inizio_sintomi, with_quarantena_precauzi
         rich_raw_line_list_pi_30 = raw_line_list_pi_30[.!is_MVP.(raw_line_list_pi_30.data_IS).&.!is_MVP.(raw_line_list_pi_30.date_IQ).&.!is_MVP.(raw_line_list_pi_30.date_FQ).&.!is_MVP.(raw_line_list_pi_30.ricoveri).&(.!is_MVP.(raw_line_list_pi_30.data_G).|.!is_MVP.(raw_line_list_pi_30.data_D)), :]
     end =#
 
-
     rich_raw_line_list_pi_30_plots = plot_multiple_samples_raw_line_list(rich_raw_line_list_pi_30, n_lines, "Raw COVID-19 individual-level surveillance data in Piedmont (PI = 30)", :scatter)
     for (i, plt) in enumerate(rich_raw_line_list_pi_30_plots)
         savefig(plt, joinpath(absolute_path_to_output_plots, run_name, "1-raw_line_list/COVID-19/raw_line_list_pi_30_plot_$(i).png"))
     end
+
     raw_line_list_pi_30 = nothing
     rich_raw_line_list_pi_30 = nothing
     rich_raw_line_list_pi_30_plots = nothing
     println("GC")
     GC.gc()
-
-
-    
-
 
     rich_raw_line_list_pi_20 = get_rich_raw_line_list(raw_line_list_pi_20, run_name)
 #=     if occursin("no_is", run_name)
@@ -1162,15 +1144,12 @@ for (run_name, with_riabilitativo, with_inizio_sintomi, with_quarantena_precauzi
     println("GC")
     GC.gc()
 
-
-
     rich_raw_line_list_pi_10 = get_rich_raw_line_list(raw_line_list_pi_10, run_name)
 #=     if occursin("no_is", run_name)
         rich_raw_line_list_pi_10 = raw_line_list_pi_10[.!is_MVP.(raw_line_list_pi_10.date_IQ).&.!is_MVP.(raw_line_list_pi_10.date_FQ).&.!is_MVP.(raw_line_list_pi_10.ricoveri).&(.!is_MVP.(raw_line_list_pi_10.data_G).|.!is_MVP.(raw_line_list_pi_10.data_D)), :] #.!is_MVP.(raw_line_list_pi_10.data_IS).&
     else
         rich_raw_line_list_pi_10 = raw_line_list_pi_10[.!is_MVP.(raw_line_list_pi_10.data_IS).&.!is_MVP.(raw_line_list_pi_10.date_IQ).&.!is_MVP.(raw_line_list_pi_10.date_FQ).&.!is_MVP.(raw_line_list_pi_10.ricoveri).&(.!is_MVP.(raw_line_list_pi_10.data_G).|.!is_MVP.(raw_line_list_pi_10.data_D)), :]
     end =#
-
 
     rich_raw_line_list_pi_10_plots = plot_multiple_samples_raw_line_list(rich_raw_line_list_pi_10, n_lines, "Raw COVID-19 individual-level surveillance data in Piedmont (PI = 10)", :scatter)
     for (i, plt) in enumerate(rich_raw_line_list_pi_10_plots)
@@ -1208,7 +1187,6 @@ for (run_name, with_riabilitativo, with_inizio_sintomi, with_quarantena_precauzi
     end
  =#
 
-
     rich_processed_line_list_pi_30_hlines_plots = plot_multiple_samples_processed_line_list(rich_processed_line_list_pi_30, n_lines, "Processed COVID-19 individual-level surveillance data in Piedmont (PI = 30)", :hlines_annotations, hlines_size)
 
     rich_processed_line_list_pi_30_scatter_plots = plot_multiple_samples_processed_line_list(rich_processed_line_list_pi_30, n_lines, "Processed COVID-19 individual-level surveillance data in Piedmont (PI = 30)", :scatter, scatter_size)
@@ -1228,7 +1206,6 @@ for (run_name, with_riabilitativo, with_inizio_sintomi, with_quarantena_precauzi
 
     rich_processed_line_list_pi_20 = get_rich_processed_line_list(line_list_ricoveri_quarantene_fp_is_lim_pi_20, run_name)
 
-
 #=     rich_processed_line_list_pi_20 = line_list_ricoveri_quarantene_fp_is_lim_pi_20[.!is_MVP.(line_list_ricoveri_quarantene_fp_is_lim_pi_20.data_IS).&.!is_MVP.(line_list_ricoveri_quarantene_fp_is_lim_pi_20.data_IQP).&.!is_MVP.(line_list_ricoveri_quarantene_fp_is_lim_pi_20.data_AO).&.!is_MVP.(line_list_ricoveri_quarantene_fp_is_lim_pi_20.data_AI).&(.!is_MVP.(line_list_ricoveri_quarantene_fp_is_lim_pi_20.data_G).|.!is_MVP.(line_list_ricoveri_quarantene_fp_is_lim_pi_20.data_D)).&(Dates.value.([ismissing(diff) ? Day(50) : diff for diff in date_FQP .- date_IQP]).<30), :] =#
 
     rich_processed_line_list_pi_20_hlines_plots = plot_multiple_samples_processed_line_list(rich_processed_line_list_pi_20, n_lines, "Processed COVID-19 individual-level surveillance data in Piedmont (PI = 20)", :hlines_annotations, hlines_size)
@@ -1241,13 +1218,13 @@ for (run_name, with_riabilitativo, with_inizio_sintomi, with_quarantena_precauzi
     for (i, plt) in enumerate(rich_processed_line_list_pi_20_scatter_plots)
         savefig(plt, joinpath(absolute_path_to_output_plots, run_name, "2-processed_line_list/COVID-19/processed_line_list_pi_20_scatter_plot_$(i).png"))
     end
+
     rich_processed_line_list_pi_20 = nothing
     line_list_ricoveri_quarantene_fp_is_lim_pi_20 = nothing
     rich_processed_line_list_pi_20_hlines_plots = nothing
     rich_processed_line_list_pi_20_scatter_plots = nothing
     println("GC")
     GC.gc()
-
 
     rich_processed_line_list_pi_10 = get_rich_processed_line_list(line_list_ricoveri_quarantene_fp_is_lim_pi_10, run_name)
 #=     rich_processed_line_list_pi_10 = line_list_ricoveri_quarantene_fp_is_lim_pi_10[.!is_MVP.(line_list_ricoveri_quarantene_fp_is_lim_pi_10.data_IS).&.!is_MVP.(line_list_ricoveri_quarantene_fp_is_lim_pi_10.data_IQP).&.!is_MVP.(line_list_ricoveri_quarantene_fp_is_lim_pi_10.data_AO).&.!is_MVP.(line_list_ricoveri_quarantene_fp_is_lim_pi_10.data_AI).&(.!is_MVP.(line_list_ricoveri_quarantene_fp_is_lim_pi_10.data_G).|.!is_MVP.(line_list_ricoveri_quarantene_fp_is_lim_pi_10.data_D)).&(Dates.value.([ismissing(diff) ? Day(50) : diff for diff in date_FQP .- date_IQP]).<30), :] =#
@@ -1278,7 +1255,6 @@ for (run_name, with_riabilitativo, with_inizio_sintomi, with_quarantena_precauzi
     println("GC")
     GC.gc() =#
 
-
     # Plot sequences
     ## COVID-19
     # include("plotting.jl")
@@ -1291,7 +1267,6 @@ for (run_name, with_riabilitativo, with_inizio_sintomi, with_quarantena_precauzi
     println("GC")
     GC.gc()
 
-
     sequences_plots_pi_20 = plot_sequences(sequences_pi_20, age_classes_representations; paltt = cgrad(:Paired_9, categorical = true))
     for (sequence, plt) in collect(sequences_plots_pi_20)
         savefig(plt, joinpath(absolute_path_to_output_plots, run_name, "sequences/COVID-19/pi_20", sequence))
@@ -1300,7 +1275,6 @@ for (run_name, with_riabilitativo, with_inizio_sintomi, with_quarantena_precauzi
     sequences_plots_pi_20 = nothing
     println("GC")
     GC.gc()
-
 
     sequences_plots_pi_10 = plot_sequences(sequences_pi_10, age_classes_representations; paltt = cgrad(:Paired_9, categorical = true))
     for (sequence, plt) in collect(sequences_plots_pi_10)
@@ -1397,7 +1371,6 @@ for (run_name, with_riabilitativo, with_inizio_sintomi, with_quarantena_precauzi
     incidences_sggregated_SDO = nothing
     println("GC")
     GC.gc() =#
-
 
     ## Plot time delays
     #include("./Code/Julia/plotting.jl");

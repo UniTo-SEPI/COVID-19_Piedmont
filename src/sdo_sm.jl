@@ -175,7 +175,6 @@ function process_trasf_trasposti_15_19_and_mort_2015_2018(trasf_trasposti_15_19:
             error("process_trasf_trasposti_15_19_to_join_alls; `mort_intraosp` column is expected to be composed only of '1's  (number, not string) and 'MVPs' (= $MVP). Found $(patient_dataframe.mort_intraosp[end]) for ID = $ID")
         end
 
-  
         # Produce a new patient with a new ID for every Ricovero beyond the first one that this patient had.
         patient_dataframe_gby_CHIAVE = groupby(patient_dataframe, :CHIAVE)
         IDs = vcat(ID.ID_ANONIMO_RIC, (max_ID+1):(max_ID+length(patient_dataframe_gby_CHIAVE)-1) ) 
@@ -198,7 +197,6 @@ function process_trasf_trasposti_15_19_and_mort_2015_2018(trasf_trasposti_15_19:
                 push!(join_all_SDOs[Threads.threadid()], (new_ID, ricovero_dataframe.AGECL[1], MVP, Date("2015-01-01"), ricovero_dataframe.dt_dim[end], MVP, ricovero_dataframe.DIA_PRIN[end]))
             end
             
-
             # Also integrate the ICD_10 dataset with the ICD_9_CM dataset
             # if !is_MVP(data_D) && new_ID ∉ mort_2015_2018_dc.ID_ANONIMO_RIC
             #     push!(mort_2015_2018_dc, (99, new_ID, ricovero_dataframe.AGECL[1], data_D, missing, missing, ricovero_dataframe.DIA_PRIN[end] ))
@@ -218,12 +216,10 @@ function process_trasf_trasposti_15_19_and_mort_2015_2018(trasf_trasposti_15_19:
     end
 
     join_all_SDO = reduce(vcat, join_all_SDOs) 
-
     
     # Select and rename useful columns, and sort by ID
     trasf_trasposti_one_ricovero_per_patient = combine(trasf_trasposti_one_ricovero_per_patient, :ID_ANONIMO_RIC => :ID_SOGGETTO, :CHIAVE, :dt_ammiss, :dt_uscita, :repint, :trasf, :DIA_PRIN)
     sort!(trasf_trasposti_one_ricovero_per_patient, :ID_SOGGETTO)
-
 
     # Add positivity and symptoms onset date to the ICD_9_CM-integrated ICD_10 mortality dataset
     # mort_2015_2018_dc.data_P = repeat([Date("2015-01-01")], size(mort_2015_2018_dc,1))
@@ -232,8 +228,6 @@ function process_trasf_trasposti_15_19_and_mort_2015_2018(trasf_trasposti_15_19:
     # Select and rename useful columns from the ICD_9_CM-integrated ICD_10 mortality dataset and sort by ID
     # mort_2015_2018_dc = combine( mort_2015_2018_dc, :ID_ANONIMO_RIC => :ID, :AGECL => :classe_eta,:data_G, :dt_mort => :data_D, :causa_m => :ICD_10, :ICD_9_CM ) #  :data_IS, :data_P, 
     # sort!(mort_2015_2018_dc, :ID)
-
-
 
     # Instantiate the various Dict{ICD_9_CM, DataFRame} that will stratify the tras_trasposti-like and the join_all-like datasets by ICD_9_CM code.
     ICD9CM_processedTrasfTraspostiOne_dct  = OrderedDict{String, DataFrame}()
@@ -249,8 +243,6 @@ function process_trasf_trasposti_15_19_and_mort_2015_2018(trasf_trasposti_15_19:
             push!(ICD9CM_processedPositiviQuarantena_dct, aggregation_name => DataFrame( ID = IDs, date_IQ = repeat([MVP], length(IDs)), date_FQ = repeat([MVP], length(IDs))  ) )
         end
     end
-
-
     # # Group tras_trasposti-like and the join_all-like datasets by ICD_9_CM code
     # trasf_trasposti_one_ricovero_per_patient_gby_DIA_PRIN = groupby(trasf_trasposti_one_ricovero_per_patient, :DIA_PRIN)
     # join_all_SDO_gby_DIA_PRIN = groupby(join_all_SDO, :DIA_PRIN)
@@ -268,9 +260,6 @@ function process_trasf_trasposti_15_19_and_mort_2015_2018(trasf_trasposti_15_19:
 
     sort!(ICD9CM_processedTrasfTraspostiOne_dct, byvalue = false)
     sort!(ICD9CM_processed_joinAll_dct, byvalue = false)
-
-    
-
     # Return
     return processed_trasf_trasposti_multiple_ricoveros_per_patient, ICD9CM_processedTrasfTraspostiOne_dct, ICD9CM_processed_joinAll_dct, ICD9CM_processedPositiviQuarantena_dct #, mort_2015_2018_dc
 
@@ -285,7 +274,6 @@ function pad_with_zeroes(str::String, n_zeroes::Int64)
     end
     return output
 end
-
 
 function convert_ICD9_codes_to_strings(ICD9_codes::Vector{String}, keep_digits::Union{Int64,Nothing})
     #all_codes = [string(code) for code in  unique(vcat(collect(values(ICD_9_CM_translations))...))]

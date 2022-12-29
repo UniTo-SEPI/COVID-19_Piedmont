@@ -2,7 +2,6 @@
 ####### DATA VISUALIZATION #######
 ##################################
 
-
 function get_rich_raw_line_list(raw_line_list::DataFrame, run_name::String)
     rich_raw_line_list = DataFrame()
     if occursin("no_is", run_name)
@@ -244,7 +243,6 @@ function plot_line_processed(line_list::DataFrame, ID::Int64; MVP, is_MVP::F, si
 
         plot!([date], [0], series_annotations = text(annotation,positions[pos_cyclic_idx%4 + 1], color = colors_dates[date]), label = "")
         taken_positions[date] = positions[pos_cyclic_idx%4 + 1]
-
     end
 
     # Add legend
@@ -557,9 +555,6 @@ end
 Return a dictionary of plots (one per delay) together with the estimated empirical distributions.
 """
 function plot_fitted_time_delay_distributions(empirical_time_delays::Dict{String, OrderedDict{Int64, OrderedDict{Int64, Dict{String,DataFrame}}}}, estimated_time_delays_distributions::Dict{String, OrderedDict{Int64, OrderedDict{Int64, Dict{String,Vector{Tuple{Any, Float64}} }}}},  T::Int64, age_classes_dct::Dict{Int64,String}; plot_size = (1000,900))
-
-
-
     # Preallocate outputs
     delays_plots = Dict{String, Plots.Plot}()
 
