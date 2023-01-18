@@ -5,6 +5,7 @@
 [![Documentation: Manuale](https://img.shields.io/badge/Docs-Manuale-lightblue.svg)](https://github.com/UniTo-SEPI/COVID-19_Piedmont/blob/main/docs/README-ITA.md)
 [![Language: English](https://img.shields.io/badge/Language-English-red.svg)](https://github.com/UniTo-SEPI/COVID-19_Piedmont/blob/main/README.md)
 [![Documentation: Manual](https://img.shields.io/badge/Docs-Manual-orange.svg)](https://github.com/UniTo-SEPI/COVID-19_Piedmont/blob/main/docs/README.md)
+[![DOI: Zenodo](https://zenodo.org/badge/571272348.svg)](https://zenodo.org/badge/latestdoi/571272348)
 
 <img align="right" width="230" height="225" src="https://github.com/UniTo-SEPI/COVID-19_Piedmont/blob/main/images/logo/logo.png?raw=true">
 
