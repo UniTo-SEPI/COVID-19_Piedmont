@@ -1,0 +1,13 @@
+Distribution, Parameter, Setting, Mean, 95%_CI_Lower, 95%_CI_Upper
+Beta-Binomial, SAR, Household, 0.211, 0.174, 0.248
+Beta-Binomial, SAR, Social gatherings with family and friends, 0.059, 0.038, 0.081
+Beta-Binomial, SAR, Travel, 0.050, 0.003, 0.098
+Beta-Binomial, SAR, Healthcare, 0.036, 0.010, 0.069
+Beta-Binomial, SAR, Workplace, 0.019, 0.000, 0.039
+Beta-Binomial, SAR, Casual close contacts, 0.012, 0.003, 0.021
+Poisson-Gamma Mixture, Robs, Household, 0.96, 0.67, 1.32
+Poisson-Gamma Mixture, Robs, Social gatherings with family and friends, 0.38, 0.18, 1.64
+Poisson-Gamma Mixture, Robs, Travel, NA, NA, NA
+Poisson-Gamma Mixture, Robs, Healthcare, 1.18, 0.65, 2.04
+Poisson-Gamma Mixture, Robs, Workplace, NA, NA, NA
+Poisson-Gamma Mixture, Robs, Casual close contacts, NA, NA, NA

@@ -1,0 +1,4 @@
+Status,         Distribution, α,     β,     Mean, 95%_CI_Lower,95%_CI_Upper
+Asymptomatic,   "Beta(α,β)",         0.406, 19.87, 0.02, 0.01, 0.03
+Presymptomatic, "Beta(α,β)",         1.61,  16.26, 0.09, 0.05, 0.14
+Symptomatic,    "Beta(α,β)",         3.64,  22.38, 0.14, 0.10, 0.17
