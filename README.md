@@ -29,12 +29,12 @@ If you use these contents in your work, please cite this repository using the me
 1. CSI Piemonte (2020) [Piedmont Region COVID-19 Data Management Platform](https://www.csipiemonte.it/en/project/piedmont-region-covid-19-platform). *CSI Piemonte*
 2. CSI Piemonte (2020) [GESCOVID19: COVID-19 Data Management Platform in Piedmont](https://github.com/regione-piemonte/gescovid19). *GitHub*
 3. Leproni (2021) [The Piedmont Region COVID-19 Platform](https://www.masteradabi.it/images/CSI_Piattaforma_COVID_20210308_V2.pdf). *CSI Piemonte*
-4. Moroni, Monticone (2022) [Italian COVID-19 Integrated Surveillance Dataset](https://doi.org/10.5281/zenodo.5748141). *Zenodo*
+4. Moroni and Monticone (2022) [Italian COVID-19 Integrated Surveillance Dataset](https://doi.org/10.5281/zenodo.5748141). *Zenodo*
 
 ### Software 
 
-1. Monticone, Moroni (2022) [ICD_GEMs.jl: A Julia Package to Translate Between ICD-9 and ICD-10 Codes](https://doi.org/10.5281/zenodo.6564434). *Zenodo*
-2. Monticone, Moroni (2022) [UnrollingAverages.jl: A Julia Package to Deconvolve Time Series Data.](https://doi.org/10.5281/zenodo.5725301). *Zenodo*
+1. Monticone and Moroni (2022) [ICD_GEMs.jl: A Julia Package to Translate Between ICD-9 and ICD-10 Codes](https://doi.org/10.5281/zenodo.6564434). *Zenodo*
+2. Monticone and Moroni (2022) [UnrollingAverages.jl: A Julia Package to Deconvolve Time Series Data.](https://doi.org/10.5281/zenodo.5725301). *Zenodo*
 
 ### Papers 
 
