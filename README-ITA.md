@@ -11,7 +11,7 @@
 
 Questo repository contiene il [codice](https://github.com/UniTo-SEPI/COVID-19_Piedmont/tree/main/src), [il manuale di documentazione](https://github.com/UniTo-SEPI/COVID-19_Piedmont/tree/main/docs/README-ITA.md) e [visualizzazioni dati](https://github.com/UniTo-SEPI/COVID-19_Piedmont/tree/main/images/plots) per il design e l'operazione della pipeline di modellizzazione e gestione dei dati di sorveglianza COVID-19 in Piemonte che abbiamo sviluppato in collaborazione con il Servizio Sovrazonale di Epidemiologia ([SEPI](https://www.epi.piemonte.it/)).
 
-Per motivi di privacy tutti i dati contenuti in questo repository sono o [`fake`](https://github.com/UniTo-SEPI/COVID-19_Piedmont/tree/main/data/fake-input) (i.e. inventati) or [`synthetic`](https://github.com/UniTo-SEPI/COVID-19_Piedmont/tree/main/data/synthetic-input) (i.e. simulati) in modo da essere strutturalmente equivalenti ai dati individuali originali per riprodurre accuratemente il funzionamento della pipeline di modellizzazione dati. 
+Per motivi di privacy tutti i dati contenuti in questo repository sono o [`fake`](https://github.com/UniTo-SEPI/COVID-19_Piedmont/tree/main/data/fake-input) (i.e. inventati) or [`synthetic`](https://github.com/UniTo-SEPI/COVID-19_Piedmont/tree/main/data/synthetic-input) (i.e. simulati) in modo da essere strutturalmente equivalenti ai dati individuali originali per riprodurre accuratamente il funzionamento della pipeline di modellizzazione dati. 
 
 L'unica referenza ai dati reali si può trovare nei grafici presenti nella cartella [`images/real-output`](https://github.com/UniTo-SEPI/COVID-19_Piedmont/tree/main/images/plots/real-output).
 

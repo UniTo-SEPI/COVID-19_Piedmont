@@ -36,14 +36,14 @@ Definiamo:
 
 In particolare: 
 
-* `AO = amissione_ordinaria `: ammissione in reparto ordinario ;
+* `AO = ammissione_ordinaria `: ammissione in reparto ordinario ;
 * `DO = dimissione_ordinaria`: dimissione da reparto ordinario ; 
-* `AI = amissione_intensiva `: ammissione in reparto intensivo ;
+* `AI = ammissione_intensiva `: ammissione in reparto intensivo ;
 * `DI = dimissione_intensiva`: dimissione da reparto intensivo ; 
-* `AR = amissione_riabilitativa `: ammissione in reparto riabilitativo ;
+* `AR = ammissione_riabilitativa `: ammissione in reparto riabilitativo ;
 * `DR = dimissione_riabilitativa`: dimissione da reparto riabilitativo .
 
-### 2.1 Ricoveri pre-tempone positivo 
+### 2.1 Ricoveri pre-tampone positivo 
 
 Per ciò che concerne tutti i pazienti che possiedono `data_ammissione_x` (con `x = ordinaria`  o  `x = intensiva`) precedente alla `data_positività` si procede impostando `data_positività = data_ammissione_x` .
 
@@ -63,7 +63,7 @@ ALTRIMENTI SE due reparti successivi sono di `tipo` diverso ma la `data_ammissio
 
 ## 3. Quarantene
 
-Definiamo **quarantena** un generico periodo di isolamento imposto ad un qualunque soggetto (sia questo un caso sospetto o un caso confermato) completamente specificato da una `data_inizo_qurantena` ed una `data_fine_quarantena`.
+Definiamo **quarantena** un generico periodo di isolamento imposto ad un qualunque soggetto (sia questo un caso sospetto o un caso confermato) completamente specificato da una `data_inizio_quarantena` ed una `data_fine_quarantena`.
 
 * **Quarantena precauzionale**:  un periodo di isolamento imposto ad un caso sospetto completamente specificato da una `data_inizio_quarantena_precauzionale` e una `data_fine_quarantena_precauzionale ` tale che `data_fine_quarantena_precauzionale <= data_positività`;
 * **Quarantena ordinaria**: un periodo di isolamento imposto ad un caso confermato completamente specificato da una `data_inizio_quarantena_ordinaria` e una `data_fine_quarantena_ordinaria` tale che `data_inizio_quarantena_ordinaria = data_positività`. 
@@ -187,11 +187,11 @@ Definiamo **sequenza o percorso clinico** la successione ordinata degli **eventi
 * `IQO = inizio_quarantena_ordinaria `: inizio della quarantena ordinaria ;
 * `IS = inizio_sintomi `: insorgenza dei sintomi;
 * `P = positività `: conferma dell'esito positivo del tampone analizzato;
-* `AO = amissione_ordinaria `: ammissione in ricovero ordinario ;
+* `AO = ammissione_ordinaria `: ammissione in ricovero ordinario ;
 * `DO = dimissione_ordinaria`: dimissione da ricovero ordinario ; 
-* `AI = amissione_intensiva `: ammissione in ricovero intensivo ;
+* `AI = ammissione_intensiva `: ammissione in ricovero intensivo ;
 * `DI = dimissione_intensiva`: dimissione da ricovero intensivo ; 
-* `AR = amissione_riabilitativa `: ammissione in ricovero riabilitativo ;
+* `AR = ammissione_riabilitativa `: ammissione in ricovero riabilitativo ;
 * `DR = dimissione_riabilitativa`: dimissione da ricovero riabilitativo ; 
 * `G = guarigione ` ;  
 * `D = decesso` 
@@ -203,11 +203,11 @@ che si verificano nelle **date notevoli**:
 * `data_IQO = data_inizio_quarantena_ordinaria ` ;
 * `data_IS = data_inizio_sintomi ` ;
 * `data_P = data_positività ` ; 
-* `data_AO = data_amissione_ordinaria ` ;
+* `data_AO = data_ammissione_ordinaria ` ;
 * `data_DO = data_dimissione_ordinaria` ;
-* `data_AI = data_amissione_intensiva ` ;
+* `data_AI = data_ammissione_intensiva ` ;
 * `data_DI = data_dimissione_intensiva` ;
-* `data_AR = data_amissione_riabilitativa ` ;
+* `data_AR = data_ammissione_riabilitativa ` ;
 * `data_DR = data_dimissione_riabilitativa` ;
 * `data_G = data_guarigione ` ;  
 * `data_D = data_decesso` .
@@ -558,7 +558,7 @@ Al fine di chiarire ulteriormente il funzionamento dell'**algoritmo** descritto 
 ### Obiettivi
 
 - Stimare le infezioni latenti nel periodo pre-sorveglianza necessarie ad inizializzare alcune variabili e parametri dei modelli di simulazione che dovranno poi essere calibrati sulle incidenza stratificate per età e sequenza estratti come descritto nelle sezioni precedenti;
-- Analisi degli eccessi di evento notevole (ammissioni, decessi, etc.) stratficato per causa anche volta a determinare eventuali casi COVID-19 mis-diagnosticati. 
+- Analisi degli eccessi di evento notevole (ammissioni, decessi, etc.) stratificato per causa anche volta a determinare eventuali casi COVID-19 mis-diagnosticati. 
 
 ### Sintesi 
 
@@ -577,7 +577,7 @@ La classificazione d'età è la medesima descritta nella sezione [0. Età](#0-Et
 
 ### Codici 
 
-Al fine di selezionare i codici ICD-10 da convertire mediante il nostro pacchetto [ICD_GEMs.jl](https://github.com/JuliaHealth/ICD_GEMs.jl) nei corrispondenti codici ICD-9 rilevanti abbiamo condotto una [rapid review](https://github.com/InPhyT/SEPI-SEREMI/tree/main/References) della letteratura con un'attenzione particolare rivolta alle analisi delle schede di morte (SM) registrate in Italia. Questa revisione supporta la scelta del set di codici assegnati a complicazioni e comorbosità associate a COVID-19 che riportaimo qui di seguito. 
+Al fine di selezionare i codici ICD-10 da convertire mediante il nostro pacchetto [ICD_GEMs.jl](https://github.com/JuliaHealth/ICD_GEMs.jl) nei corrispondenti codici ICD-9 rilevanti abbiamo condotto una [rapid review](https://github.com/InPhyT/SEPI-SEREMI/tree/main/References) della letteratura con un'attenzione particolare rivolta alle analisi delle schede di morte (SM) registrate in Italia. Questa revisione supporta la scelta del set di codici assegnati a complicazioni e comorbosità associate a COVID-19 che riportiamo qui di seguito. 
 
 #### Cause Concorrenti O Precipitanti O Antecedenti
 
@@ -616,7 +616,7 @@ Al fine di selezionare i codici ICD-10 da convertire mediante il nostro pacchett
 | J00–J06, J20–J39, J60–J70, J80–J86, J90–J96, J97–J99, R09.2, U04 | Other diseases of the respiratory system                  | [CDC-NCHS (2022)](https://www.cdc.gov/nchs/nvss/vsrr/covid19/excess_deaths.htm) |
 | I00–I99                                                      | Diseases of the circulatory system                        | [Grande et al. (2021)](https://doi.org/10.3390/covid1040060) |
 | I00–I09, I26–I49, I51, I52, I70–I99                          | Other disease of the circulatory system                   | [CDC-NCHS (2022)](https://www.cdc.gov/nchs/nvss/vsrr/covid19/excess_deaths.htm) |
-| J09–J18                                                      | Infuenza and pneumonia                                    | [CDC-NCHS (2022)](https://www.cdc.gov/nchs/nvss/vsrr/covid19/excess_deaths.htm) ; [Grande et al. (2021)](https://doi.org/10.3390/covid1040060) |
+| J09–J18                                                      | Influenza and pneumonia                                    | [CDC-NCHS (2022)](https://www.cdc.gov/nchs/nvss/vsrr/covid19/excess_deaths.htm) ; [Grande et al. (2021)](https://doi.org/10.3390/covid1040060) |
 | J09-J189                                                     | Flu, Pneumonia                                            | [Fedeli et al. (2021)](https://doi.org/10.26355/eurrev_202105_25844) |
 | J40-J47                                                      | Chronic lower-respiratory diseases                        | [Grippo et al. (2020)](https://doi.org/10.3390/jcm9113459) ; [Grippo et al. (2021)](https://doi.org/10.3389/fmed.2021.645543) ; [CDC-NCHS (2022)](https://www.cdc.gov/nchs/nvss/vsrr/covid19/excess_deaths.htm) ; [Fedeli et al. (2021)](https://doi.org/10.26355/eurrev_202105_25844) ; [Orsi et al. (2021)](https://www.istat.it/it/files/2021/05/RSU-1_2021_Article-3.pdf) |
 | J80, J849, J96x                                              | Selected respiratory diseases                             | [Fedeli et al. (2021)](https://doi.org/10.26355/eurrev_202105_25844) |
